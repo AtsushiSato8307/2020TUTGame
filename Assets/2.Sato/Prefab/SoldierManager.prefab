@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7305776074848092591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7305776074848092585}
+  - component: {fileID: 7305776074848092584}
+  - component: {fileID: 7305776074848092586}
+  m_Layer: 0
+  m_Name: SoldierManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7305776074848092585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305776074848092591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7305776074848092584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305776074848092591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fa3a9b28c2021489da41df0ef4a763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoldiorNumber: 9
+  SoldiorArray: []
+  counter: {fileID: 0}
+  exsistenceSoldior: 0
+  exsistenceCarpenter: 0
+  exsistenceMercenary: 0
+--- !u!114 &7305776074848092586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305776074848092591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911f5d69a3c86534cab27a5284cd8c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setSoldiorPrefs:
+  - {fileID: 8163474367262983394, guid: cf2032457734c314eae92d990435e03d, type: 3}
+  - {fileID: 8163474367262983394, guid: ae82ee7380165fb48bb528a2c8172474, type: 3}
+  - {fileID: 8163474367262983394, guid: e59025fa426ccda4392bf6aecd8a0316, type: 3}
+  SetPoints: {fileID: 0}
