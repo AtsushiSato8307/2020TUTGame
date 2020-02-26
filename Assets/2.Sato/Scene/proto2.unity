@@ -1403,6 +1403,7 @@ GameObject:
   - component: {fileID: 1953891371}
   - component: {fileID: 1953891370}
   - component: {fileID: 1953891372}
+  - component: {fileID: 1953891373}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -1422,8 +1423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f7db2b426df48429ca1543934a8c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentSoldiorNum: 0
-  MaxSoldiorNum: 0
+  CurrentSoldiorNum: 100
+  MaxSoldiorNum: 100
 --- !u!4 &1953891371
 Transform:
   m_ObjectHideFlags: 0
@@ -1452,6 +1453,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentType: 0
   Canon: {fileID: 529523282672555379, guid: 42041bde4e3ee1744a1dcdf0e2da9ce1, type: 3}
+  Camp: {fileID: 5700842969668773475, guid: 94d0f18c13a0f3446a72dbc743888a10, type: 3}
+--- !u!114 &1953891373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953891369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a512ff00e17b88048838ed71baa6a9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaltMoveCost: 30
+  DefaltCanonCost: 20
+  DefaltCampCost: 20
 --- !u!1 &2042581068
 GameObject:
   m_ObjectHideFlags: 0
