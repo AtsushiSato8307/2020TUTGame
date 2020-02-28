@@ -13,7 +13,7 @@ public class UISoldiorNum : MonoBehaviour
     private Text maxText;
 
     [SerializeField, Tooltip("現兵士数UI")]
-    private GameObject UICurrentSoldiorNum;
+    private GameObject UICurrentSoldiorNum = default;
 
     private Text currentText;
 

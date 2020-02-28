@@ -26,11 +26,13 @@ public class ActiveAction : MonoBehaviour
     private PlayerMove playerMove;
     // レイの距離
     private float rayRange = 100f;
+    // 現在移動に人員を割いているか
+    private bool is_Move = false;
 
     [SerializeField, Tooltip("大砲のプレファブ")]
-    private GameObject Canon;
+    private GameObject Canon = null;
     [SerializeField, Tooltip("キャンプのプレファブ")]
-    private GameObject Camp;
+    private GameObject Camp = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,10 +58,26 @@ public class ActiveAction : MonoBehaviour
             // 移動
             if (currentType == ActionType.Move)
             {
-                if (controller.CurrentSoldiorNum > cost.DefaltMoveCost)
+                // 既に移動中
+                if (is_Move == true)
                 {
-                    controller.CurrentSoldiorNum -= cost.DefaltMoveCost;
-                    playerMove.MovePlayer(SetPosition);
+                    playerMove.MovePlayer(SetPosition, () => {
+                        controller.CurrentSoldiorNum += cost.DefaltMoveCost;
+                        is_Move = false;
+                    });
+                }
+                // 移動していない
+                else
+                {
+                    if (controller.CurrentSoldiorNum > cost.DefaltMoveCost)
+                    {
+                        is_Move = true;
+                        controller.CurrentSoldiorNum -= cost.DefaltMoveCost;
+                        playerMove.MovePlayer(SetPosition, () => {
+                            controller.CurrentSoldiorNum += cost.DefaltMoveCost;
+                            is_Move = false;
+                        });
+                    }
                 }
             }
             // 大砲
