@@ -8,9 +8,9 @@ public class MainCamera : MonoBehaviour
     private GameObject Player;
 
     [SerializeField, Tooltip("オフセット")]
-    private Vector3 offset;
+    private Vector3 offset = Vector3.zero;
     [SerializeField, Tooltip("プレイヤーとの距離のしきい値")]
-    private Vector3 distanceLimit;
+    private Vector3 distanceLimit = Vector3.zero;
 
     private Vector3 PlayerPosition { get { return Player.transform.position; } }
 

@@ -23,7 +23,7 @@ public class HitPoint : MonoBehaviour
     {
         // UI制御
         HPUI.SetHitPoint(maxHitPoint, currentHitPoint);
-        if (maxHitPoint <= 0)
+        if (currentHitPoint <= 0)
         {
             Destroy(gameObject);
         }

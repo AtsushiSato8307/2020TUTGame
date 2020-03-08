@@ -13,10 +13,10 @@ public class SetSoldior : MonoBehaviour
     private SoldiorManager manager;
 
     [SerializeField, Tooltip("兵種")]
-    private GameObject[] setSoldiorPrefs;
+    private GameObject[] setSoldiorPrefs = null;
 
     [SerializeField, Tooltip("隊列配置")]
-    private GameObject SetPoints;
+    private GameObject SetPoints = null;
 
     // Start is called before the first frame update
     void Start()

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class CursolEvent : MonoBehaviour
 {
     [SerializeField, Tooltip("タッチする位置")]
-    private Transform touchPosition;
+    private Transform touchPosition = null;
     [SerializeField, Tooltip("セレクトタブ")]
-    private GameObject selectTab;
+    private GameObject selectTab = null;
 
     public Transform SelectObjTransform;
     // Start is called before the first frame update

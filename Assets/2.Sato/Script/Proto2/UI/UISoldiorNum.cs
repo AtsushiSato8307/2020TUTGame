@@ -8,7 +8,7 @@ public class UISoldiorNum : MonoBehaviour
     private GameController Controller;
 
     [SerializeField, Tooltip("兵士最大数UI")]
-    private GameObject UIMaxSoldiorNum;
+    private GameObject UIMaxSoldiorNum = null;
 
     private Text maxText;
 

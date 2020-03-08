@@ -6,7 +6,7 @@ public class GameControllerProto : MonoBehaviour
 {
     public bool timeStop = false;
     [SerializeField, Tooltip("ストップ中のウィンドウ")]
-    private GameObject StopWindow;
+    private GameObject StopWindow = null;
     // Start is called before the first frame update
     void Start()
     {

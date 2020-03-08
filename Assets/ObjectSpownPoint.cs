@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObjectSpownPoint : MonoBehaviour
 {
     [SerializeField, Tooltip("生成間隔")]
-    private float intervalTime;
+    private float intervalTime = 0;
 
     [SerializeField, Tooltip("生成するオブジェクトのプレファブ")]
-    private GameObject enemy;
+    private GameObject enemy = null;
 
     // タイマー
     private float timer;

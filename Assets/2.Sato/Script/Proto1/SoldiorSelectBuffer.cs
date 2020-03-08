@@ -17,7 +17,7 @@ public class SoldiorSelectBuffer : MonoBehaviour
     }
 
     [SerializeField, Tooltip("カーソル")]
-    private GameObject cursol;
+    private GameObject cursol = null;
     public Transform selectTransform { get { return cursol.GetComponent<CursolEvent>().SelectObjTransform; } }
 
 }

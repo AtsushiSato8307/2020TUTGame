@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class hitPointUI : MonoBehaviour
+public class CoolTimeUI : MonoBehaviour
 {
     private GameObject CanvasObj;
     private Slider slider;
@@ -19,16 +19,16 @@ public class hitPointUI : MonoBehaviour
 
     private Transform CanvasTransform { get { return CanvasObj.transform; } }
 
-    public int MaxHitPoint { set; private get; }
+    public float MaxTime { set; private get; }
 
-    public int CurrentHitPoint { set; private get; }
+    public float CurrentTime { set; private get; }
 
     // Start is called before the first frame update
     void Start()
     {
         // Canvasを子要素に生成
         CanvasObj = Instantiate(canvas, transform.position, Quaternion.identity);
-        CanvasTransform.SetParent(this.transform);
+        CanvasTransform.parent = transform;
         // sliderの取得
         slider = CanvasTransform.GetChild(0).GetComponent<Slider>();
 
@@ -38,8 +38,8 @@ public class hitPointUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.maxValue = MaxHitPoint;
-        slider.value = CurrentHitPoint;
+        slider.maxValue = MaxTime;
+        slider.value = CurrentTime;
         FixedUITransform();
     }
     #region UIのTransform修正
@@ -68,14 +68,14 @@ public class hitPointUI : MonoBehaviour
     }
     #endregion
 
-    /// <summary>HPの設定
+    /// <summary>Timeの設定
     /// </summary>
     /// <param name="max">最大値</param>
     /// <param name="current">現在値</param>
-    public void SetHitPoint(int max, int current)
+    public void SetCoolTime(float max, float current)
     {
-        MaxHitPoint = max;
-        CurrentHitPoint = current;
+        MaxTime = max;
+        CurrentTime = current;
     }
     private void OnEnable()
     {

@@ -7,9 +7,9 @@ public class CursolMove : MonoBehaviour
     private int lockmulti = 1;
     private Vector2 inputVector;
     [SerializeField]
-    private float InitSpeed;
+    private float InitSpeed = 0;
     [SerializeField]
-    private float SiftSpeed;
+    private float SiftSpeed = 0;
     private float Speed
     {
         get
