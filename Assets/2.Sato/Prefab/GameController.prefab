@@ -62,6 +62,7 @@ MonoBehaviour:
   currentType: 0
   Canon: {fileID: 529523282672555379, guid: 42041bde4e3ee1744a1dcdf0e2da9ce1, type: 3}
   Camp: {fileID: 5700842969668773475, guid: 94d0f18c13a0f3446a72dbc743888a10, type: 3}
+  Soldior: {fileID: 2669595060718134369, guid: 7554e0bf292ad364c81dc9f608c35660, type: 3}
 --- !u!114 &6788869083521564487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,3 +78,4 @@ MonoBehaviour:
   DefaltMoveCost: 30
   DefaltCanonCost: 20
   DefaltCampCost: 20
+  DefaltSoldiorCost: 20

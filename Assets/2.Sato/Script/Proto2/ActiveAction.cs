@@ -9,7 +9,8 @@ public enum ActionType
     None,
     Move,
     SetCanon,
-    SetCamp
+    SetCamp,
+    SetSoldior
 }
 public class ActiveAction : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class ActiveAction : MonoBehaviour
     private GameObject Canon = null;
     [SerializeField, Tooltip("キャンプのプレファブ")]
     private GameObject Camp = null;
+    [SerializeField, Tooltip("兵士のプレファブ")]
+    public GameObject Soldior = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +101,15 @@ public class ActiveAction : MonoBehaviour
                 {
                     controller.CurrentSoldiorNum -= cost.DefaltCampCost;
                     Instantiate(Camp, SetPosition, Quaternion.identity);
+                }
+            }
+            // 兵士
+            if (currentType == ActionType.SetSoldior)
+            {
+                if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
+                {
+                    controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost;
+                    Instantiate(Soldior, SetPosition, Quaternion.identity);
                 }
             }
             // アクションタイプを未選択に

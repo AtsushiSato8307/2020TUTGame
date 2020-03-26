@@ -12,7 +12,7 @@ public class MainCamera : MonoBehaviour
     [SerializeField, Tooltip("プレイヤーとの距離のしきい値")]
     private Vector3 distanceLimit = Vector3.zero;
 
-    private Vector3 PlayerPosition { get { return Player.transform.position; } }
+    private Vector3 PlayerPosition { get { if (Player != null) return Player.transform.position; else return transform.position; } }
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,9 @@ public class MainCamera : MonoBehaviour
         fixedz =
         Mathf.Clamp(transform.position.z, PlayerPosition.z - distanceLimit.z, PlayerPosition.z + distanceLimit.z);
 
-        transform.position = new Vector3(fixedx, fixedy, fixedz) + offset;
-
+        if (Player != null)
+        {
+            transform.position = new Vector3(fixedx, fixedy, fixedz) + offset;
+        }
     }
 }

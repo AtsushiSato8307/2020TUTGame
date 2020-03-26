@@ -5,17 +5,15 @@ using UnityEngine.UI;
 
 public class hitPointUI : MonoBehaviour
 {
+    private GameObject canvas;
     private GameObject CanvasObj;
     private Slider slider;
 
     [SerializeField, Tooltip("位置調整")]
-    private Vector3 OffsetPosition = Vector3.zero;
+    private Vector3 OffsetPosition = new Vector3(0,0,1);
 
     [SerializeField, Tooltip("サイズ調整")]
-    private Vector3 Size = Vector3.zero;
-
-    [SerializeField, Tooltip("キャンバスのプレファブ")]
-    private GameObject canvas = null;
+    private Vector3 Size = new Vector3(0.02f, 0.015f, 0);
 
     private Transform CanvasTransform { get { return CanvasObj.transform; } }
 
@@ -26,6 +24,8 @@ public class hitPointUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // CanvasをLoad
+        canvas = (GameObject)Resources.Load("Prefab/HPUICanvas");
         // Canvasを子要素に生成
         CanvasObj = Instantiate(canvas, transform.position, Quaternion.identity);
         CanvasTransform.SetParent(this.transform);
