@@ -109,7 +109,8 @@ public class ActiveAction : MonoBehaviour
                 if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
                 {
                     controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost;
-                    Instantiate(Soldior, SetPosition, Quaternion.identity);
+                    var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+                    Instantiate(Soldior, PlayerPosition, Quaternion.identity);
                 }
             }
             // アクションタイプを未選択に
