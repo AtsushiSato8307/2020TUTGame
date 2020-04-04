@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b010994af8f2d4d9faf9cb2ec41942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &8956955788718567075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,10 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a401111f3341d8c448524ae893ae3a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 3
   MaxHitPoint: 50
   CurrentHitPoint: 50
   TargetTag: Player
+  target: {fileID: 0}
+  Damage: 30
+  AttackIntervalTime: 2
+  AttackRange: 2
 --- !u!114 &234236715
 MonoBehaviour:
   m_ObjectHideFlags: 0

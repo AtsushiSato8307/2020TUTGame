@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class SoldiorStatas : MonoBehaviour
 {
-    public float Speed = 10;
+    public float Speed = 2;
     public int MaxHitPoint = 50;
     public int CurrentHitPoint = 50;
-    public string TargetTag = "Enemy";
-    public GameObject target;
     public int Damage = 30;
     public float AttackIntervalTime = 2;
-    public float AttackRange = 2;
+    public float AttackRange = 5;
+    public GameObject Target;
 
     private HitPoint hp;
     private SoldiorNavMove move;
@@ -20,7 +19,6 @@ public class SoldiorStatas : MonoBehaviour
     {
         hp = GetComponent<HitPoint>();
         move = GetComponent<SoldiorNavMove>();
-        target = GameObject.FindGameObjectWithTag(TargetTag);
     }
 
     // Update is called once per frame
@@ -28,18 +26,5 @@ public class SoldiorStatas : MonoBehaviour
     {
         MaxHitPoint = hp.maxHitPoint;
         CurrentHitPoint = hp.currentHitPoint;
-        if (target == null)
-        {
-            Retarget();
-        }
     }
-    void Retarget()
-    {
-        target = GameObject.FindGameObjectWithTag(TargetTag);
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Player");
-        }
-    }
-
 }

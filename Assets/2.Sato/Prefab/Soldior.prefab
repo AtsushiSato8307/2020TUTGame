@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -3449613508512512992}
   - component: {fileID: 6015002272373666022}
   - component: {fileID: 3983167830172154300}
+  - component: {fileID: 8350510102242865753}
   m_Layer: 0
   m_Name: Soldior
   m_TagString: Untagged
@@ -161,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed76319e44be8142a5ed44fd720b287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetObj: {fileID: 4804831099939680302, guid: 59719bc9f412c3c42b1ae7351e40edd9,
+    type: 3}
 --- !u!114 &3983167830172154300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,5 +174,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30febf3f3955bea40bff80cf0731f8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3
+  MaxHitPoint: 50
+  CurrentHitPoint: 50
+  Damage: 30
+  AttackIntervalTime: 2
+  AttackRange: 3
+--- !u!114 &8350510102242865753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2669595060718134369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ef78782afcd3641b53b871e4d4be3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -110,7 +110,8 @@ public class ActiveAction : MonoBehaviour
                 {
                     controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost;
                     var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-                    Instantiate(Soldior, PlayerPosition, Quaternion.identity);
+                    var sol = Instantiate(Soldior, PlayerPosition, Quaternion.identity);
+                    sol.GetComponent<SoldiorNavMove>().AddPoints(SetPosition);
                 }
             }
             // アクションタイプを未選択に

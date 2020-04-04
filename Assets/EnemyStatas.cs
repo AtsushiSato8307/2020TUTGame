@@ -5,7 +5,7 @@ using UnityEngine;
 // 数値の保存場所
 public class  EnemyStatas : MonoBehaviour
 {
-    public float Speed = 10;
+    public float Speed = 3;
     public int MaxHitPoint = 50;
     public int CurrentHitPoint = 50;
     public string TargetTag = "Player";
