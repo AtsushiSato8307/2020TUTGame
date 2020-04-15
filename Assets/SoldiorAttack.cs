@@ -23,12 +23,17 @@ public class SoldiorAttack : MonoBehaviour
     {
         if (Target != null && Vector3.Distance(transform.position, Target.transform.position) < statas.AttackRange)
         {
+            GetComponent<SoldiorMotion>().m_state = SoldiorMotion.SoldiorMotionState.Attack;
             timer -= Time.deltaTime;
             if (timer < 0)
             {
                 timer = statas.AttackIntervalTime;
                 Attack();
             }
+        }
+        else
+        {
+            GetComponent<SoldiorMotion>().m_state = SoldiorMotion.SoldiorMotionState.Walk;
         }
         beforeVect = transform.position;
     }

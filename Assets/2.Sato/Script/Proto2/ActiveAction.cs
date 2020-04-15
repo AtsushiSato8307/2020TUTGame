@@ -31,6 +31,8 @@ public class ActiveAction : MonoBehaviour
     // 現在移動に人員を割いているか
     private bool is_Move = false;
 
+    [SerializeField, Tooltip("工兵")]
+    private GameObject Carpenter;
     [SerializeField, Tooltip("大砲のプレファブ")]
     private GameObject Canon = null;
     [SerializeField, Tooltip("キャンプのプレファブ")]
@@ -91,7 +93,11 @@ public class ActiveAction : MonoBehaviour
                 if (controller.CurrentSoldiorNum > cost.DefaltCanonCost)
                 {
                     controller.CurrentSoldiorNum -= cost.DefaltCanonCost;
-                    Instantiate(Canon, SetPosition, Quaternion.identity);
+                    var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+                    var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
+                    var CarNav = Car.GetComponent<CarpenterNavMove>();
+                    CarNav.AddPoints(SetPosition);
+                    CarNav.SetBilding(() => Instantiate(Canon, Car.transform.position, Quaternion.identity));
                 }
             }
             // キャンプ
@@ -100,7 +106,11 @@ public class ActiveAction : MonoBehaviour
                 if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
                 {
                     controller.CurrentSoldiorNum -= cost.DefaltCampCost;
-                    Instantiate(Camp, SetPosition, Quaternion.identity);
+                    var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+                    var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
+                    var CarNav = Car.GetComponent<CarpenterNavMove>();
+                    CarNav.AddPoints(SetPosition);
+                    CarNav.SetBilding(() => Instantiate(Camp, Car.transform.position, Quaternion.identity));
                 }
             }
             // 兵士
