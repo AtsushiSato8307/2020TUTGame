@@ -25,12 +25,17 @@ public class EnemyAttack : MonoBehaviour
     {
         if (Target != null && Vector3.Distance(transform.position, Target.transform.position) < statas.AttackRange)
         {
+            GetComponent<EnemyMotion>().IsAttack = true;
             timer -= Time.deltaTime;
             if (timer < 0)
             {
                 timer = statas.AttackIntervalTime;
                 Attack();
             }
+        }
+        else
+        {
+            GetComponent<EnemyMotion>().IsAttack = false;
         }
         beforeVect = transform.position;
     }
