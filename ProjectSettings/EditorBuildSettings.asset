@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Main/Scenes/StageSelect.unity
     guid: fd043e0a7fa2f3c4d84cf144a11e0791
+  - enabled: 1
+    path: Assets/2.Sato/Scene/proto2.unity
+    guid: 2edf6f98f8b814b41a44475e18b6dad6
+  - enabled: 1
+    path: Assets/2.Sato/Scene/CrearScene.unity
+    guid: 8de0b4cb425885e469ba83fc67cef681
   m_configObjects: {}

@@ -11,7 +11,7 @@ public class Canp : MonoBehaviour
 
     [SerializeField, Tooltip("生成数")]
     private int spownSoldiorNum = 0;
-    
+    private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
     // タイマー
     private float timer;
     private GameController controller;
@@ -35,6 +35,10 @@ public class Canp : MonoBehaviour
             timer = 0;
             controller.MaxSoldiorNum += spownSoldiorNum;
             controller.CurrentSoldiorNum += spownSoldiorNum;
+        }
+        if (IsDead == true)
+        {
+            Destroy(gameObject);
         }
     }
 }

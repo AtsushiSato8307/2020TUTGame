@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: -4598846187460642003}
   - component: {fileID: 3053149733811632920}
   m_Layer: 9
-  m_Name: Enemy_B
+  m_Name: Enemy_C
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,13 +161,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1.5
-  MaxHitPoint: 50
-  CurrentHitPoint: 50
+  MaxHitPoint: 400
+  CurrentHitPoint: 400
   TargetTag: Building
   target: {fileID: 0}
-  Damage: 30
-  AttackIntervalTime: 2
-  AttackRange: 2
+  Damage: 100
+  AttackIntervalTime: 4
+  AttackRange: 4
 --- !u!114 &234236715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dc6d2af1f780c4aa3c11f0fcd3b0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoint: 100
-  currentHitPoint: 100
+  maxHitPoint: 500
+  currentHitPoint: 500
   enabledUI: 1
 --- !u!54 &74585039
 Rigidbody:

@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         is_move = false;
+        distination = transform.position;
     }
 
     // Update is called once per frame

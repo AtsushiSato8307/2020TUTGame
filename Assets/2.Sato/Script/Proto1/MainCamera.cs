@@ -12,6 +12,8 @@ public class MainCamera : MonoBehaviour
     [SerializeField, Tooltip("プレイヤーとの距離のしきい値")]
     private Vector3 distanceLimit = Vector3.zero;
 
+    private float scroll;
+
     private Vector3 PlayerPosition { get { if (Player != null) return Player.transform.position; else return transform.position; } }
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MoveCamera();
         float fixedx, fixedy, fixedz;
         fixedx =
         Mathf.Clamp(transform.position.x, PlayerPosition.x - distanceLimit.x, PlayerPosition.x + distanceLimit.x);
@@ -36,5 +39,12 @@ public class MainCamera : MonoBehaviour
         {
             transform.position = new Vector3(fixedx, fixedy, fixedz) + offset;
         }
+    }
+    /// <summary>オフセットを変更してカメラ操作する
+    /// </summary>
+    void MoveCamera()
+    {
+        scroll = Input.GetAxis("Mouse ScrollWheel");
+        offset.y -= scroll * 10;
     }
 }

@@ -15,6 +15,8 @@ public class Canon : MonoBehaviour
 
     private delegate void DeadBullet();
 
+    private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,11 @@ public class Canon : MonoBehaviour
                 FireBullet();
                 timer = 0;
             }
+        }
+        // 死亡処理
+        if (IsDead == true)
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class DetectionSphere : MonoBehaviour
 {
-    private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
+    public bool PlayerDetectionTrigger;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +14,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsDead == true)
+        
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            PlayerDetectionTrigger = true;
         }
     }
 }

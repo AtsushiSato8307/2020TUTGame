@@ -8,9 +8,15 @@ public enum ActionType
 {
     None,
     Move,
-    SetCanon,
-    SetCamp,
-    SetSoldior
+    SetCanon1,
+    SetCamp1,
+    SetSoldior1,
+    SetCanon2,
+    SetCamp2,
+    SetSoldior2,
+    SetCanon3,
+    SetCamp3,
+    SetSoldior3
 }
 public class ActiveAction : MonoBehaviour
 {
@@ -30,6 +36,8 @@ public class ActiveAction : MonoBehaviour
     private float rayRange = 100f;
     // 現在移動に人員を割いているか
     private bool is_Move = false;
+
+    private Vector3 PlayerPosition { get { return GameObject.FindGameObjectWithTag("Player").transform.position; } }
 
     [SerializeField, Tooltip("工兵")]
     private GameObject Carpenter;
@@ -52,83 +60,108 @@ public class ActiveAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // マウスのフィールドの位置の取得
+        MouseFieldPosition();
+
+        // UIをクリックしていたらリターン
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
+
         // 左クリック
         if (Input.GetMouseButtonDown(0))
         {
-            // クリックした位置の取得
-            GetClickPosition();
+
+            // クリックした位置がアクション可能位置であるか？
+
             // アクション処理
             // 移動
-            if (currentType == ActionType.Move)
+            // Playerと射線が通っているか
+            Debug.Log(RayToPlayer());
+            if (!RayToPlayer())
             {
-                // 既に移動中
-                if (is_Move == true)
+                if (currentType == ActionType.Move)
                 {
-                    playerMove.MovePlayer(SetPosition, () => {
-                        controller.CurrentSoldiorNum += cost.DefaltMoveCost;
-                        is_Move = false;
-                    });
-                }
-                // 移動していない
-                else
-                {
-                    if (controller.CurrentSoldiorNum > cost.DefaltMoveCost)
+                    // 既に移動中
+                    if (is_Move == true)
                     {
-                        is_Move = true;
-                        controller.CurrentSoldiorNum -= cost.DefaltMoveCost;
-                        playerMove.MovePlayer(SetPosition, () => {
+                        playerMove.MovePlayer(SetPosition, () =>
+                        {
                             controller.CurrentSoldiorNum += cost.DefaltMoveCost;
                             is_Move = false;
                         });
                     }
+                    // 移動していない
+                    else
+                    {
+                        if (controller.CurrentSoldiorNum > cost.DefaltMoveCost)
+                        {
+                            is_Move = true;
+                            controller.CurrentSoldiorNum -= cost.DefaltMoveCost;
+                            playerMove.MovePlayer(SetPosition, () =>
+                            {
+                                controller.CurrentSoldiorNum += cost.DefaltMoveCost;
+                                is_Move = false;
+                            });
+                        }
+                    }
                 }
             }
             // 大砲
-            if (currentType == ActionType.SetCanon)
+            if (currentType == ActionType.SetCanon1)
             {
-                if (controller.CurrentSoldiorNum > cost.DefaltCanonCost)
-                {
-                    controller.CurrentSoldiorNum -= cost.DefaltCanonCost;
-                    var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-                    var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
-                    var CarNav = Car.GetComponent<CarpenterNavMove>();
-                    CarNav.AddPoints(SetPosition);
-                    CarNav.SetBilding(() => Instantiate(Canon, Car.transform.position, Quaternion.identity));
-                }
+                SetCanon();
             }
             // キャンプ
-            if (currentType == ActionType.SetCamp)
+            if (currentType == ActionType.SetCamp1)
             {
-                if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
-                {
-                    controller.CurrentSoldiorNum -= cost.DefaltCampCost;
-                    var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-                    var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
-                    var CarNav = Car.GetComponent<CarpenterNavMove>();
-                    CarNav.AddPoints(SetPosition);
-                    CarNav.SetBilding(() => Instantiate(Camp, Car.transform.position, Quaternion.identity));
-                }
+                SetCamp();
             }
             // 兵士
-            if (currentType == ActionType.SetSoldior)
+            if (currentType == ActionType.SetSoldior1)
             {
-                if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
-                {
-                    controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost;
-                    var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-                    var sol = Instantiate(Soldior, PlayerPosition, Quaternion.identity);
-                    sol.GetComponent<SoldiorNavMove>().AddPoints(SetPosition);
-                }
+                SetSoldior();
             }
             // アクションタイプを未選択に
             currentType = ActionType.None;
         }
     }
-    private void GetClickPosition() {
+    private void SetCanon()
+    {
+        if (controller.CurrentSoldiorNum > cost.DefaltCanonCost)
+        {
+            controller.CurrentSoldiorNum -= cost.DefaltCanonCost;
+            var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
+            var CarNav = Car.GetComponent<CarpenterNavMove>();
+            CarNav.AddPoints(SetPosition);
+            CarNav.SetBilding(() => Instantiate(Canon, Car.transform.position, Quaternion.identity));
+        }
+    }
+    private void SetCamp()
+    {
+        if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
+        {
+            controller.CurrentSoldiorNum -= cost.DefaltCampCost;
+            var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
+            var CarNav = Car.GetComponent<CarpenterNavMove>();
+            CarNav.AddPoints(SetPosition);
+            CarNav.SetBilding(() => Instantiate(Camp, Car.transform.position, Quaternion.identity));
+        }
+    }
+    private void SetSoldior()
+    {
+        if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
+        {
+            controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost;
+            var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            var sol = Instantiate(Soldior, PlayerPosition, Quaternion.identity);
+            sol.GetComponent<SoldiorNavMove>().AddPoints(SetPosition);
+        }
+    }
+    private void MouseFieldPosition() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, rayRange, LayerMask.GetMask("Field")))
@@ -138,6 +171,15 @@ public class ActiveAction : MonoBehaviour
         // y軸修正
         SetPosition = new Vector3(clickPosition.x, 0.5f, clickPosition.z);
 
+    }
+    private bool RayToPlayer()
+    {
+        bool Ray = Physics.Raycast(PlayerPosition, Vector3.Normalize(SetPosition - PlayerPosition), Vector3.Distance(PlayerPosition, SetPosition), LayerMask.GetMask("Wall")) ;
+        return Ray;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(PlayerPosition, SetPosition - PlayerPosition);
     }
     public void SetType(int setType)
     {

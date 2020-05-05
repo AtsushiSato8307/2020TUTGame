@@ -11,6 +11,7 @@ public class SoldiorStatas : MonoBehaviour
     public float AttackIntervalTime = 2;
     public float AttackRange = 5;
     public GameObject Target;
+    private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
 
     private HitPoint hp;
     private SoldiorNavMove move;
@@ -26,5 +27,9 @@ public class SoldiorStatas : MonoBehaviour
     {
         MaxHitPoint = hp.maxHitPoint;
         CurrentHitPoint = hp.currentHitPoint;
+        if (IsDead == true)
+        {
+            Destroy(gameObject);
+        }
     }
 }
