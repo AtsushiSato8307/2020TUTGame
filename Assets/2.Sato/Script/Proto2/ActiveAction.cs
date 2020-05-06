@@ -26,6 +26,8 @@ public class ActiveAction : MonoBehaviour
     private ActionCost cost;
     // 現在選択されている状態
     public ActionType currentType;
+    // 現在選択されているレベル
+    public int currentLevel;
     // クリックした場所
     private Vector3 clickPosition;
     // 修正後の位置
@@ -42,11 +44,11 @@ public class ActiveAction : MonoBehaviour
     [SerializeField, Tooltip("工兵")]
     private GameObject Carpenter;
     [SerializeField, Tooltip("大砲のプレファブ")]
-    private GameObject Canon = null;
+    private GameObject[] Canon = null;
     [SerializeField, Tooltip("キャンプのプレファブ")]
-    private GameObject Camp = null;
+    private GameObject[] Camp = null;
     [SerializeField, Tooltip("兵士のプレファブ")]
-    public GameObject Soldior = null;
+    public GameObject[] Soldior = null;
 
     // Start is called before the first frame update
     void Start()
@@ -111,53 +113,53 @@ public class ActiveAction : MonoBehaviour
             // 大砲
             if (currentType == ActionType.SetCanon1)
             {
-                SetCanon();
+                SetCanon(currentLevel);
             }
             // キャンプ
             if (currentType == ActionType.SetCamp1)
             {
-                SetCamp();
+                SetCamp(currentLevel);
             }
             // 兵士
             if (currentType == ActionType.SetSoldior1)
             {
-                SetSoldior();
+                SetSoldior(currentLevel);
             }
             // アクションタイプを未選択に
             currentType = ActionType.None;
         }
     }
-    private void SetCanon()
+    private void SetCanon(int Level)
     {
-        if (controller.CurrentSoldiorNum > cost.DefaltCanonCost)
+        if (controller.CurrentSoldiorNum > cost.DefaltCanonCosts[Level - 1])
         {
-            controller.CurrentSoldiorNum -= cost.DefaltCanonCost;
+            controller.CurrentSoldiorNum -= cost.DefaltCanonCosts[Level - 1];
             var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
             var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
             var CarNav = Car.GetComponent<CarpenterNavMove>();
             CarNav.AddPoints(SetPosition);
-            CarNav.SetBilding(() => Instantiate(Canon, Car.transform.position, Quaternion.identity));
+            CarNav.SetBilding(() => Instantiate(Canon[Level -1], Car.transform.position, Quaternion.identity));
         }
     }
-    private void SetCamp()
+    private void SetCamp(int Level)
     {
-        if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
+        if (controller.CurrentSoldiorNum > cost.DefaltCampCosts[Level - 1])
         {
-            controller.CurrentSoldiorNum -= cost.DefaltCampCost;
+            controller.CurrentSoldiorNum -= cost.DefaltCampCosts[Level - 1];
             var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
             var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
             var CarNav = Car.GetComponent<CarpenterNavMove>();
             CarNav.AddPoints(SetPosition);
-            CarNav.SetBilding(() => Instantiate(Camp, Car.transform.position, Quaternion.identity));
+            CarNav.SetBilding(() => Instantiate(Camp[Level -1], Car.transform.position, Quaternion.identity));
         }
     }
-    private void SetSoldior()
+    private void SetSoldior(int Level)
     {
-        if (controller.CurrentSoldiorNum > cost.DefaltCampCost)
+        if (controller.CurrentSoldiorNum > cost.DefaltSoldiorCost)
         {
             controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost;
             var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-            var sol = Instantiate(Soldior, PlayerPosition, Quaternion.identity);
+            var sol = Instantiate(Soldior[0], PlayerPosition, Quaternion.identity);
             sol.GetComponent<SoldiorNavMove>().AddPoints(SetPosition);
         }
     }
@@ -184,5 +186,9 @@ public class ActiveAction : MonoBehaviour
     public void SetType(int setType)
     {
         currentType = (ActionType)setType;
+    }
+    public void SetLevel(int setLevel)
+    {
+        currentLevel = setLevel;
     }
 }

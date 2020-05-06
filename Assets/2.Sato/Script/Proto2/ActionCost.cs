@@ -4,7 +4,7 @@ using UnityEngine;
 public class ActionCost : MonoBehaviour
 {
     public int DefaltMoveCost;
-    public int DefaltCanonCost;
-    public int DefaltCampCost;
+    public int[] DefaltCanonCosts;
+    public int[] DefaltCampCosts;
     public int DefaltSoldiorCost;
 }

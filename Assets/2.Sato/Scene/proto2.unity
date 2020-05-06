@@ -2328,6 +2328,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2055470057}
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &881783602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2732,6 +2743,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2055470057}
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1090953324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2927,6 +2949,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2055470057}
         m_MethodName: SetType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2055470057}
+        m_MethodName: SetLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3206,6 +3239,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2055470057}
         m_MethodName: SetType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2055470057}
+        m_MethodName: SetLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4759,6 +4803,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2055470057}
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1895215036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,10 +5200,112 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
         type: 3}
+      propertyPath: Canon.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Camp.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Soldior.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
       propertyPath: Carpenter
       value: 
       objectReference: {fileID: 5639048384142348500, guid: 0bcd005e8a2c83140b0f8e87e4193ff9,
         type: 3}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Canon.Array.data[0]
+      value: 
+      objectReference: {fileID: 529523282672555379, guid: 42041bde4e3ee1744a1dcdf0e2da9ce1,
+        type: 3}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Canon.Array.data[1]
+      value: 
+      objectReference: {fileID: 529523282672555379, guid: 09486c0a7e65ae04e9a4b06b2eea3dc9,
+        type: 3}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Canon.Array.data[2]
+      value: 
+      objectReference: {fileID: 529523282672555379, guid: c2754f104761ac542907a5bb7b4742ba,
+        type: 3}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Camp.Array.data[0]
+      value: 
+      objectReference: {fileID: 5700842969668773475, guid: 94d0f18c13a0f3446a72dbc743888a10,
+        type: 3}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Soldior.Array.data[0]
+      value: 
+      objectReference: {fileID: 2669595060718134369, guid: 7554e0bf292ad364c81dc9f608c35660,
+        type: 3}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Camp.Array.data[1]
+      value: 
+      objectReference: {fileID: 5700842969668773475, guid: 99677db9ae6f7d34c9714aca02359622,
+        type: 3}
+    - target: {fileID: 6788869083521564480, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: Camp.Array.data[2]
+      value: 
+      objectReference: {fileID: 5700842969668773475, guid: d70c7a1565f857942a8a5b1664301434,
+        type: 3}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCanonCosts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCampCosts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCanonCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCanonCosts.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCanonCosts.Array.data[1]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCanonCosts.Array.data[2]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCampCosts.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCampCosts.Array.data[1]
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788869083521564487, guid: c8acbcf00e27c2c4dbb19787a93496d3,
+        type: 3}
+      propertyPath: DefaltCampCosts.Array.data[2]
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8acbcf00e27c2c4dbb19787a93496d3, type: 3}
 --- !u!114 &2055470057 stripped
@@ -5318,6 +5475,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2055470057}
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
