@@ -84,6 +84,16 @@ public class SlideButton : MonoBehaviour
             type = SlideType.Open;
         }
     }
+    public void SlideOpen()
+    {
+        OnSlide = true;
+        type = SlideType.Open;
+    }
+    public void SlideClose()
+    {
+        OnSlide = true;
+        type = SlideType.Close;
+    }
     private void ButtonActive(bool set)
     {
         foreach (var i in Buttons)
