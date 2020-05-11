@@ -8,29 +8,24 @@ public enum ActionType
 {
     None,
     Move,
-    SetCanon1,
-    SetCamp1,
-    SetSoldior1,
-    SetCanon2,
-    SetCamp2,
-    SetSoldior2,
-    SetCanon3,
-    SetCamp3,
-    SetSoldior3
+    SetCanon,
+    SetCamp,
+    SetSoldior
 }
 public class ActiveAction : MonoBehaviour
 {
     // ゲームコントローラー
     private GameController controller;
+    // マウスドロワー
+    private MouseDrawer drawer;
     // コスト
     private ActionCost cost;
+
     // 現在選択されている状態
     public ActionType currentType;
     // 現在選択されているレベル
     public int currentLevel;
-    // クリックした場所
-    private Vector3 clickPosition;
-    // 修正後の位置
+    // フィールド上のマウスの位置
     private Vector3 SetPosition;
     // プレイヤーの移動
     private PlayerMove playerMove;
@@ -38,6 +33,8 @@ public class ActiveAction : MonoBehaviour
     private float rayRange = 100f;
     // 現在移動に人員を割いているか
     private bool is_Move = false;
+    // Playerと射線が通っているか
+    private bool rayToPlayer;
 
     private Vector3 PlayerPosition { get { return GameObject.FindGameObjectWithTag("Player").transform.position; } }
 
@@ -53,6 +50,7 @@ public class ActiveAction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        drawer = GetComponent<MouseDrawer>();
         cost = GetComponent<ActionCost>();
         controller = GetComponent<GameController>();
         playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
@@ -62,8 +60,23 @@ public class ActiveAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // マウスのフィールドの位置の取得
-        MouseFieldPosition();
+        // アクション選択中に限りチェックする項目 /////////////////////
+        if (currentType != ActionType.None)
+        {
+            // マウスのフィールドの位置の取得
+            MouseFieldPosition();
+
+            // マウスの位置がアクション可能位置であるか？
+
+
+            // Playerと射線が通っているか
+            rayToPlayer = RayToPlayer();
+
+        }
+        //////////////////////////////////////////////////////////////
+
+        // マウス用UI処理
+        drawer.SetDrawerStatas(currentType, SetPosition, rayToPlayer);
 
         // UIをクリックしていたらリターン
         if (EventSystem.current.IsPointerOverGameObject())
@@ -74,60 +87,59 @@ public class ActiveAction : MonoBehaviour
         // 左クリック
         if (Input.GetMouseButtonDown(0))
         {
-
-            // クリックした位置がアクション可能位置であるか？
-
-            // アクション処理
-            // 移動
-            // Playerと射線が通っているか
-            Debug.Log(RayToPlayer());
-            if (!RayToPlayer())
+            ClickAction();
+        }
+    }
+    private void ClickAction()
+    {
+        // アクション処理
+        // 移動
+        if (!rayToPlayer)
+        {
+            if (currentType == ActionType.Move)
             {
-                if (currentType == ActionType.Move)
+                // 既に移動中
+                if (is_Move == true)
                 {
-                    // 既に移動中
-                    if (is_Move == true)
+                    playerMove.MovePlayer(SetPosition, () =>
                     {
+                        controller.CurrentSoldiorNum += cost.DefaltMoveCost;
+                        is_Move = false;
+                    });
+                }
+                // 移動していない
+                else
+                {
+                    if (controller.CurrentSoldiorNum > cost.DefaltMoveCost)
+                    {
+                        is_Move = true;
+                        controller.CurrentSoldiorNum -= cost.DefaltMoveCost;
                         playerMove.MovePlayer(SetPosition, () =>
                         {
                             controller.CurrentSoldiorNum += cost.DefaltMoveCost;
                             is_Move = false;
                         });
                     }
-                    // 移動していない
-                    else
-                    {
-                        if (controller.CurrentSoldiorNum > cost.DefaltMoveCost)
-                        {
-                            is_Move = true;
-                            controller.CurrentSoldiorNum -= cost.DefaltMoveCost;
-                            playerMove.MovePlayer(SetPosition, () =>
-                            {
-                                controller.CurrentSoldiorNum += cost.DefaltMoveCost;
-                                is_Move = false;
-                            });
-                        }
-                    }
                 }
             }
-            // 大砲
-            if (currentType == ActionType.SetCanon1)
-            {
-                SetCanon(currentLevel);
-            }
-            // キャンプ
-            if (currentType == ActionType.SetCamp1)
-            {
-                SetCamp(currentLevel);
-            }
-            // 兵士
-            if (currentType == ActionType.SetSoldior1)
-            {
-                SetSoldior(currentLevel);
-            }
-            // アクションタイプを未選択に
-            currentType = ActionType.None;
         }
+        // 大砲
+        if (currentType == ActionType.SetCanon)
+        {
+            SetCanon(currentLevel);
+        }
+        // キャンプ
+        if (currentType == ActionType.SetCamp)
+        {
+            SetCamp(currentLevel);
+        }
+        // 兵士
+        if (currentType == ActionType.SetSoldior)
+        {
+            SetSoldior(currentLevel);
+        }
+        // アクションタイプを未選択に
+        currentType = ActionType.None;
     }
     private void SetCanon(int Level)
     {
@@ -166,13 +178,13 @@ public class ActiveAction : MonoBehaviour
     private void MouseFieldPosition() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        Vector3 clickPosition = new Vector3();
         if (Physics.Raycast(ray, out hit, rayRange, LayerMask.GetMask("Field")))
         {
-            clickPosition = hit.point;
+             clickPosition = hit.point;
         }
         // y軸修正
         SetPosition = new Vector3(clickPosition.x, 0.5f, clickPosition.z);
-
     }
     private bool RayToPlayer()
     {
