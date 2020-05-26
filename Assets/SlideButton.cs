@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class SlideButton : MonoBehaviour
 {
@@ -21,18 +22,24 @@ public class SlideButton : MonoBehaviour
     [SerializeField, Tooltip("Speed")]
     private float speed;
 
+    [SerializeField, Tooltip("使用可能か否か")]
+    private bool[] is_Interactives;
+
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var i in Buttons)
+        var b = Buttons.Select((g, i) => new { i, g });
+        foreach (var n in b)
         {
-            i.SetActive(false);
+            n.g.SetActive(false);
+            n.g.GetComponent<Button>().interactable = is_Interactives[n.i];
         }
     }
     // Update is called once per frame
     void Update()
     {
         var b = Buttons.Select((g, i) => new { i, g });
+        #region スライド処理
         if (OnSlide)
         {
             ButtonActive(true);
@@ -71,6 +78,7 @@ public class SlideButton : MonoBehaviour
                     break;
             }
         }
+        #endregion 
     }
     public void Slide()
     {
@@ -93,6 +101,11 @@ public class SlideButton : MonoBehaviour
     {
         OnSlide = true;
         type = SlideType.Close;
+    }
+
+    public void SwitchInteractive(int num)
+    {
+            Buttons[num].SetActive(false);
     }
     private void ButtonActive(bool set)
     {

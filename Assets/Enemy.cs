@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     {
         if (IsDead == true)
         {
+            Instantiate(GetComponent<EnemyStatas>().DropItem, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

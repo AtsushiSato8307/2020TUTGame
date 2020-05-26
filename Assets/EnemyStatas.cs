@@ -12,7 +12,8 @@ public class  EnemyStatas : MonoBehaviour
     public GameObject target;
     public int Damage = 30;
     public float AttackIntervalTime = 2;
-    public float AttackRange = 2; 
+    public float AttackRange = 2;
+    public GameObject DropItem;
 
     private HitPoint hp;
     private EnemyMove move;

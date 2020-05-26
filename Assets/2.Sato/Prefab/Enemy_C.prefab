@@ -168,6 +168,8 @@ MonoBehaviour:
   Damage: 100
   AttackIntervalTime: 4
   AttackRange: 4
+  DropItem: {fileID: 6212501163479302678, guid: 5b66439bfa8777644943d4d53191267d,
+    type: 3}
 --- !u!114 &234236715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoint: 500
   currentHitPoint: 500
+  is_Dead: 0
   enabledUI: 1
 --- !u!54 &74585039
 Rigidbody:
