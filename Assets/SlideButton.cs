@@ -105,7 +105,7 @@ public class SlideButton : MonoBehaviour
 
     public void SwitchInteractive(int num)
     {
-            Buttons[num].SetActive(false);
+        Buttons[num].GetComponent<Button>().interactable = true;
     }
     private void ButtonActive(bool set)
     {
