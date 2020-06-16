@@ -10,8 +10,11 @@ public class SlideButton : MonoBehaviour
         Open,
         Close,
     }
+    private GameController controller;
     private SlideType type = SlideType.Close;
     private bool OnSlide;
+    [SerializeField, Tooltip("コストの数値とボタンの数値の差")]
+    private int CostButtonDifference;
 
     [SerializeField, Tooltip("使用するボタン")]
     private GameObject[] Buttons;
@@ -28,6 +31,7 @@ public class SlideButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         var b = Buttons.Select((g, i) => new { i, g });
         foreach (var n in b)
         {
@@ -105,7 +109,11 @@ public class SlideButton : MonoBehaviour
 
     public void SwitchInteractive(int num)
     {
-        Buttons[num].GetComponent<Button>().interactable = true;
+        // ドラッグ中かつポイントが足りていたら実行
+        if (controller.is_dragEnergyPoint >= controller.costs.ReinforcedCost[num])
+        {
+            Buttons[num - CostButtonDifference].GetComponent<Button>().interactable = true;
+        }
     }
     private void ButtonActive(bool set)
     {

@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intervalTime: 8
-  enemy: {fileID: 8956955788718567099, guid: 83b8a8237db35d3488cf4c279705290f, type: 3}
+  enemy: {fileID: 8956955788718567099, guid: 2ece76328dd2d4445861ddbce1e592ca, type: 3}
 --- !u!114 &3339588502433398344
 MonoBehaviour:
   m_ObjectHideFlags: 0

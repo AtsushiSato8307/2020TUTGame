@@ -6,36 +6,36 @@ public class EnergyDrag : MonoBehaviour
 {
     [SerializeField, Tooltip("マウスポインタに着けるエフェクト")]
     private GameObject MousePointObj;
-
     private GameController Controller;
+    private ActionCost cost;
     private GameObject effect;
     private Vector3 TouchScreenPosition { get { return new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.8f); } }
     private Vector3 EffectPosition { get { return Camera.main.ScreenToWorldPoint(TouchScreenPosition); } }
-
-    private bool is_Drag;
+    private int is_Drag { get { return Controller.is_dragEnergyPoint; } set { Controller.is_dragEnergyPoint = value; } }
     // 処理遅延用
-    private bool t;
+    private int nextFrameIs_Drag;
 
     // Start is called before the first frame update
     void Start()
     {
-        Controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        var gameController = GameObject.FindGameObjectWithTag("GameController");
+        Controller = gameController.GetComponent<GameController>();
+        cost = gameController.GetComponent<ActionCost>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(is_Drag);
     }
     private void LateUpdate()
     {
-        is_Drag = t;
+        is_Drag = nextFrameIs_Drag;
     }
     public void PointerDown()
     {
         effect = Instantiate(MousePointObj);
         effect.transform.position = EffectPosition;
-        t = true;
+        nextFrameIs_Drag = Controller.ReinforcedPoint;
     }
     public void Drag()
     {
@@ -44,16 +44,17 @@ public class EnergyDrag : MonoBehaviour
     public void EndDrag()
     {
         Destroy(effect);
-        t = false;
+        nextFrameIs_Drag = 0;
     }
     /// <summary>レベル開放
     /// </summary>
-    /// <param name="cost">必要コスト</param>
-    public void ReleseLevel(int cost)
+    /// <param name="costnum">コスト表番号</param>
+    public void ReleseLevel(int costnum)
     {
-        if (is_Drag == true)
+        // 仮
+        if (is_Drag >= Controller.costs.ReinforcedCost[costnum])
         {
-            Controller.ReinforcedPoint -= cost;
+            Controller.ReinforcedPoint -= Controller.costs.ReinforcedCost[costnum];
         }
     }
 }
