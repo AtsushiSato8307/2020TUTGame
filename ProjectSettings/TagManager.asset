@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Canon
   - Building
+  - Field
+  - Lake
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Field
   - Enemy
   - Wall
-  - 
+  - Land
   - 
   - 
   - 

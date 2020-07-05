@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Canon : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class Canon : MonoBehaviour
 
     [SerializeField, Tooltip("弾のプレファブ")]
     private GameObject bulletPrefab = null;
+
+    [SerializeField, Tooltip("大砲のモデル")]
+    private GameObject CanonModel;
+
+    [SerializeField, Tooltip("マスクのフィールド")]
+    private GameObject MaskField;
 
     private GameObject bullet;
 
@@ -22,6 +29,7 @@ public class Canon : MonoBehaviour
     {
         search = GetComponent<CanonSearch>();
         statas = GetComponent<CanonStatas>();
+        Instantiate(MaskField, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -29,6 +37,8 @@ public class Canon : MonoBehaviour
     {
         if (search.Is_Hit && search.Target != null)
         {
+            // モデル回転
+            CanonModel.transform.forward = search.Target.transform.position - transform.position;
             timer += Time.deltaTime;
             if (timer > statas.IntervalTime)
             {
@@ -45,8 +55,12 @@ public class Canon : MonoBehaviour
 
     private void FireBullet()
     {
+        // 弾の処理
         bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        // モデルの処理
+        CanonModel.GetComponent<Animator>().SetTrigger("Fire");
         bullet.GetComponent<CanonBullet>().CanonBulletConstract(statas.BulletSpead, search.Target.transform, () =>
         { search.Target.GetComponent<HitPoint>().currentHitPoint -= statas.Damage; });
+
     }
 }

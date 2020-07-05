@@ -7,7 +7,7 @@ public class PlayerDead : MonoBehaviour
     private float timer;
     private HitPoint hp;
     private bool hit_Land;
-    private float canHitTime = 0.1f;
+    private float canHitTime = 0.05f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +29,13 @@ public class PlayerDead : MonoBehaviour
     public void HitLand()
     {
         timer = canHitTime;
+        Debug.Log("hit");
     }
     public void WaterHazard()
     {
         if (timer < 0)
         {
-            Destroy(gameObject);
+            GetComponent<PlayerMove>().CompulsionStop = true;
         }
     }
 }

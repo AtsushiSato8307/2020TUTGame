@@ -22,6 +22,9 @@ public class GameController : MonoBehaviour
     [SerializeField, Tooltip("コスト値")]
     public Cost costs;
 
+    [SerializeField, Tooltip("建設時間")]
+    public BuildTime buildtime;
+
     // Start is called before the first frame update
     void Start()
     {

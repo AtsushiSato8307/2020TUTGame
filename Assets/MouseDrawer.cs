@@ -9,7 +9,7 @@ public class MouseDrawer : MonoBehaviour
 
     private ActionType type;
     private Vector3 setPosition;
-    private bool rayToPlayer;
+    private bool canmove;
     private Text text;
     private GameObject obj;
 
@@ -50,7 +50,7 @@ public class MouseDrawer : MonoBehaviour
         {
             uiObj.SetActive(true);
             line.enabled = true;
-            if (!rayToPlayer)
+            if (canmove)
             {
                 text.text = "移動可能";
                 text.color = Color.blue;
@@ -94,10 +94,10 @@ public class MouseDrawer : MonoBehaviour
         line.SetPosition(1, p2);
     }
 
-    public void SetDrawerStatas(ActionType type, Vector3 setPosition, bool rayToPlayer)
+    public void SetDrawerStatas(ActionType type, Vector3 setPosition, bool canmove)
     {
         this.type = type;
         this.setPosition = setPosition;
-        this.rayToPlayer = rayToPlayer;
+        this.canmove = canmove;
     }
 }

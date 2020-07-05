@@ -35,6 +35,12 @@ public class ActiveAction : MonoBehaviour
     private bool is_Move = false;
     // Playerと射線が通っているか
     private bool rayToPlayer;
+    // Action可能位置であるか
+    private bool canAction;
+    // 池か
+    private bool is_Lake;
+    // 移動可能か
+    private bool canMove;
 
     private Vector3 PlayerPosition { get { return GameObject.FindGameObjectWithTag("Player").transform.position; } }
 
@@ -64,19 +70,20 @@ public class ActiveAction : MonoBehaviour
         if (currentType != ActionType.None)
         {
             // マウスのフィールドの位置の取得
-            MouseFieldPosition();
-
             // マウスの位置がアクション可能位置であるか？
-
+            canAction = MouseFieldPosition();
 
             // Playerと射線が通っているか
             rayToPlayer = RayToPlayer();
+
+            // 移動可能か
+            canMove = canAction && rayToPlayer && !is_Lake;
 
         }
         //////////////////////////////////////////////////////////////
 
         // マウス用UI処理
-        drawer.SetDrawerStatas(currentType, SetPosition, rayToPlayer);
+        drawer.SetDrawerStatas(currentType, SetPosition, canMove);
 
         // UIをクリックしていたらリターン
         if (EventSystem.current.IsPointerOverGameObject())
@@ -94,7 +101,7 @@ public class ActiveAction : MonoBehaviour
     {
         // アクション処理
         // 移動
-        if (!rayToPlayer)
+        if (canMove)
         {
             if (currentType == ActionType.Move)
             {
@@ -123,20 +130,23 @@ public class ActiveAction : MonoBehaviour
                 }
             }
         }
-        // 大砲
-        if (currentType == ActionType.SetCanon)
+        if (canAction)
         {
-            SetCanon(currentLevel);
-        }
-        // キャンプ
-        if (currentType == ActionType.SetCamp)
-        {
-            SetCamp(currentLevel);
-        }
-        // 兵士
-        if (currentType == ActionType.SetSoldior)
-        {
-            SetSoldior(currentLevel);
+            // 大砲
+            if (currentType == ActionType.SetCanon)
+            {
+                SetCanon(currentLevel);
+            }
+            // キャンプ
+            if (currentType == ActionType.SetCamp)
+            {
+                SetCamp(currentLevel);
+            }
+            // 兵士
+            if (currentType == ActionType.SetSoldior)
+            {
+                SetSoldior(currentLevel);
+            }
         }
         // アクションタイプを未選択に
         currentType = ActionType.None;
@@ -150,7 +160,7 @@ public class ActiveAction : MonoBehaviour
             var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
             var CarNav = Car.GetComponent<CarpenterNavMove>();
             CarNav.AddPoints(SetPosition);
-            CarNav.SetBilding(() => Instantiate(Canon[Level -1], Car.transform.position, Quaternion.identity));
+            CarNav.SetBilding(() => Instantiate(Canon[Level - 1], Car.transform.position, Quaternion.identity));
         }
     }
     private void SetCamp(int Level)
@@ -162,7 +172,7 @@ public class ActiveAction : MonoBehaviour
             var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
             var CarNav = Car.GetComponent<CarpenterNavMove>();
             CarNav.AddPoints(SetPosition);
-            CarNav.SetBilding(() => Instantiate(Camp[Level -1], Car.transform.position, Quaternion.identity));
+            CarNav.SetBilding(() => Instantiate(Camp[Level - 1], Car.transform.position, Quaternion.identity));
         }
     }
     private void SetSoldior(int Level)
@@ -175,21 +185,26 @@ public class ActiveAction : MonoBehaviour
             sol.GetComponent<SoldiorNavMove>().AddPoints(SetPosition);
         }
     }
-    private void MouseFieldPosition() {
+    private bool MouseFieldPosition()
+    {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Vector3 clickPosition = new Vector3();
-        if (Physics.Raycast(ray, out hit, rayRange, LayerMask.GetMask("Field")))
+        bool m_canAction = false;
+        if (Physics.Raycast(ray, out hit, rayRange, LayerMask.GetMask("Field") | 11))
         {
-             clickPosition = hit.point;
+            clickPosition = hit.point;
+            is_Lake = hit.collider.CompareTag("Lake");
+            m_canAction = hit.collider.CompareTag("Field") || hit.collider.CompareTag("Lake");
         }
         // y軸修正
         SetPosition = new Vector3(clickPosition.x, 0.5f, clickPosition.z);
+        return m_canAction;
     }
     private bool RayToPlayer()
     {
-        bool Ray = Physics.Raycast(PlayerPosition, Vector3.Normalize(SetPosition - PlayerPosition), Vector3.Distance(PlayerPosition, SetPosition), LayerMask.GetMask("Wall")) ;
-        return Ray;
+        bool Ray = Physics.Raycast(PlayerPosition, Vector3.Normalize(SetPosition - PlayerPosition), Vector3.Distance(PlayerPosition, SetPosition), LayerMask.GetMask("Wall"));
+        return !Ray;
     }
     private void OnDrawGizmos()
     {

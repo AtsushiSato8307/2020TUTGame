@@ -11,6 +11,10 @@ public class Canp : MonoBehaviour
 
     [SerializeField, Tooltip("生成数")]
     private int spownSoldiorNum = 0;
+
+    [SerializeField, Tooltip("マスクのフィールド")]
+    private GameObject MaskField;
+
     private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
     // タイマー
     private float timer;
@@ -22,6 +26,7 @@ public class Canp : MonoBehaviour
         // UIの設定
         ctui = GetComponent<CoolTimeUI>();
         ctui.SetCoolTime(intervalTime, timer);
+        Instantiate(MaskField, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
     }
 
     // Update is called once per frame

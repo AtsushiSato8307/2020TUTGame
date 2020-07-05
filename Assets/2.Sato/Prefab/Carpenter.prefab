@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetObj: {fileID: 4804831099939680302, guid: 59719bc9f412c3c42b1ae7351e40edd9,
     type: 3}
+  underConstructionPref: {fileID: 7970379404184542100, guid: fc2af067e9b46f742ba78713f58ce932,
+    type: 3}
 --- !u!195 &5639048384142348505
 NavMeshAgent:
   m_ObjectHideFlags: 0
