@@ -17,7 +17,7 @@ public class Land : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col);
+        //Debug.Log(col);
 
         if (col.gameObject.CompareTag("Player"))
         {
@@ -26,7 +26,7 @@ public class Land : MonoBehaviour
     }
     private void OnTriggerStay(Collider col)
     {
-        Debug.Log(col);
+        //Debug.Log(col);
 
         if (col.gameObject.CompareTag("Player"))
         {

@@ -7,6 +7,7 @@ public class Canon : MonoBehaviour
 {
     private CanonSearch search = null;
     private CanonStatas statas;
+    private AudioSource audio;
     private float timer;
 
     [SerializeField, Tooltip("弾のプレファブ")]
@@ -30,6 +31,7 @@ public class Canon : MonoBehaviour
         search = GetComponent<CanonSearch>();
         statas = GetComponent<CanonStatas>();
         Instantiate(MaskField, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,8 @@ public class Canon : MonoBehaviour
 
     private void FireBullet()
     {
+        // 音
+        audio.PlayOneShot(audio.clip);
         // 弾の処理
         bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         // モデルの処理
