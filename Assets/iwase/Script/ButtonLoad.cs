@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine; using UnityEngine.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonLoad : MonoBehaviour
 {
@@ -32,6 +33,6 @@ public class ButtonLoad : MonoBehaviour
    
     public void Exit() 
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         UnityEngine.Application.Quit(); }
 }

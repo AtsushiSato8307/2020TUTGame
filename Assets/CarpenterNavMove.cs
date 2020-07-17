@@ -85,7 +85,7 @@ public class CarpenterNavMove : MonoBehaviour
             CurrentTarget = TargetPoints.Dequeue();
         }
         // キューが空ならプレイヤーをターゲットに
-        else if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) > 0.5f)
+        else if (GameObject.FindGameObjectWithTag("Player") != null && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) > 0.5f)
         {
             agent.destination = GameObject.FindGameObjectWithTag("Player").transform.position;
         }

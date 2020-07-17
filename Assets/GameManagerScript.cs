@@ -8,29 +8,41 @@ public class GameManagerScript : MonoBehaviour
     private GameObject CrearPrefab;
     private float IntervalTime;
     private bool ClearTrigger = false;
+    private bool OverTrigger = false;
     private SE se;
+    private bool isPose = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(GameObject.FindGameObjectWithTag("SE") != null)
         se = GameObject.FindGameObjectWithTag("SE").GetComponent<SE>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.F))
-        {
-            ClearTrigger = true;
-        }
+        //if (Input.GetKey(KeyCode.F))
+        //{
+        //    ClearTrigger = true;
+        //}
         if (ClearTrigger)
         {
             IntervalTime -= Time.deltaTime;
             if (IntervalTime < 0)
             {
-                SceneManager.LoadScene("ClearScene");
+                SceneManager.LoadScene("m_ClearScene");
             }
         }
+        else if (OverTrigger)
+        {
+            IntervalTime -= Time.deltaTime;
+            if (IntervalTime < 0)
+            {
+                SceneManager.LoadScene("m_GameOver");
+            }
+        }
+
     }
     public void Crear(float IntervalTime)
     {
@@ -40,8 +52,17 @@ public class GameManagerScript : MonoBehaviour
             ClearTrigger = true;
         }
     }
+    public void Over(float IntervalTime)
+    {
+        if (!ClearTrigger)
+        {
+            this.IntervalTime = IntervalTime;
+            OverTrigger = true;
+        }
+    }
     public void PlaySE(int senum)
     {
+        if(se != null)
         se.PlaySe(senum);
     }
 }

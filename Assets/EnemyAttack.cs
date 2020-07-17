@@ -23,9 +23,8 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Target != null && Vector3.Distance(transform.position, Target.transform.position) < statas.AttackRange)
+        if (Target != null && Vector3.Distance(transform.position, Target.transform.position) <= statas.AttackRange)
         {
-            GetComponent<EnemyMotion>().IsAttack = true;
             timer -= Time.deltaTime;
             if (timer < 0)
             {
@@ -35,7 +34,6 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            GetComponent<EnemyMotion>().IsAttack = false;
         }
         beforeVect = transform.position;
     }
@@ -43,5 +41,6 @@ public class EnemyAttack : MonoBehaviour
     void Attack()
     {
         Target.GetComponent<HitPoint>().currentHitPoint -= Damage;
+        GetComponent<EnemyMotion>().Attack();
     }
 }

@@ -10,6 +10,9 @@ public class Castle : MonoBehaviour
     [SerializeField, Tooltip("生成するオブジェクトのプレファブ")]
     private GameObject enemy = null;
 
+    [SerializeField]
+    private GameObject explosion;
+
     private bool trigger = false;
     private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
 
@@ -33,7 +36,9 @@ public class Castle : MonoBehaviour
         }
         if (IsDead == true)
         {
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManagerScript>().Crear(5);
+            var explo = Instantiate(explosion, transform.position ,Quaternion.identity);
+            explo.transform.localScale = new Vector3(5, 5, 5);
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManagerScript>().Crear(1.5f);
             Destroy(gameObject);
         }
     }

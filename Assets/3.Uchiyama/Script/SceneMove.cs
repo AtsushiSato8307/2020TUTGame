@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SceneMove : MonoBehaviour
 {
-    private string nextSceneName;
+    private string nextScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +21,12 @@ public class SceneMove : MonoBehaviour
 
     public void OnButton(string SceneName)
     {
-        nextSceneName = SceneName;
-        Invoke("ChangeScene", 1);
+        nextScene = SceneName;
+        Invoke("ChangeScene", 0.5f);
     }
     private void ChangeScene()
     {
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene(nextScene);
 
     }
 }

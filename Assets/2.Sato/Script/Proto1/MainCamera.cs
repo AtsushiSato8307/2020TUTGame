@@ -11,6 +11,8 @@ public class MainCamera : MonoBehaviour
     private Vector3 offset = Vector3.zero;
     [SerializeField, Tooltip("プレイヤーとの距離のしきい値")]
     private Vector3 distanceLimit = Vector3.zero;
+    [SerializeField, Tooltip("オフセットリミット")]
+    private Vector3 offsetLimit = new Vector3(0, 20, -10);
 
     private float scroll;
 
@@ -34,7 +36,18 @@ public class MainCamera : MonoBehaviour
         Mathf.Clamp(transform.position.y, PlayerPosition.y - distanceLimit.y, PlayerPosition.y + distanceLimit.y);
         fixedz =
         Mathf.Clamp(transform.position.z, PlayerPosition.z - distanceLimit.z, PlayerPosition.z + distanceLimit.z);
+        
+        // 調整
+        if (offset.y < 1f)
+        {
+            offset = new Vector3(0, 1, -0.5f);
+        }
 
+        if (!(offset.y < offsetLimit.y && offset.y > -offsetLimit.y))
+        {
+            offset.y = offsetLimit.y;
+            offset.z = offsetLimit.z;
+        }
         if (Player != null)
         {
             transform.position = new Vector3(fixedx, fixedy, fixedz) + offset;
@@ -45,6 +58,8 @@ public class MainCamera : MonoBehaviour
     void MoveCamera()
     {
         scroll = Input.GetAxis("Mouse ScrollWheel");
+
         offset.y -= scroll * 10;
+        offset.z -= scroll * -5;
     }
 }

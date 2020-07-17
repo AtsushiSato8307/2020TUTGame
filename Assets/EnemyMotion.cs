@@ -27,6 +27,9 @@ public class EnemyMotion : MonoBehaviour
     void SetMotion()
     {
         anim.SetFloat("MoveSpeed", speed);
-        anim.SetBool("IsAttack", IsAttack);
+    }
+    public void Attack()
+    {
+        anim.SetTrigger("AttackTrigger");
     }
 }

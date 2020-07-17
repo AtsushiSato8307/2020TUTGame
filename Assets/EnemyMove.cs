@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         statas = GetComponent<EnemyStatas>();
         agent.speed = statas.Speed;
-        agent.stoppingDistance = statas.AttackRange;
+        agent.stoppingDistance = statas.AttackRange -0.1f;
     }
 
     // Update is called once per frame

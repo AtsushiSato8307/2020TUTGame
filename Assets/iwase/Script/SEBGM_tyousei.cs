@@ -6,19 +6,22 @@ using UnityEngine;using UnityEngine.UI;using UnityEngine.SceneManagement;using U
 public class SEBGM_tyousei : MonoBehaviour
 {
     // [SerializeField] float maxvolume;
-    [SerializeField] public static float BGMvol =0.5f ;
+    [SerializeField] public static float BGMvol =0.1f ;
     [SerializeField] public static float SEvol =0.5f ;
     [SerializeField] Slider BGMslider;
     [SerializeField] Slider SEslider;
-    [SerializeField] AudioSource BGM;
-    [SerializeField] AudioSource SE;
+    private AudioSource BGM;
+    private AudioSource SE;
 
    // public AudioMixer mixer;
 
     // GameObject   hikitsugi  = UIhikitsugi.Instance;
     void Start()
     {
-       float bgmvol = PlayerPrefs.GetFloat("BGMvol", BGMvol);
+        BGM = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+        SE = GameObject.FindGameObjectWithTag("SE").GetComponent<AudioSource>();
+
+        float bgmvol = PlayerPrefs.GetFloat("BGMvol", BGMvol);
         BGMslider.value = BGMvol;
 
         float sevol = PlayerPrefs.GetFloat("SEvol", SEvol);

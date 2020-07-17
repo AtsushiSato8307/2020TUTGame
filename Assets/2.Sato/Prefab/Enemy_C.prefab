@@ -97,7 +97,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8956955788718567099}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48de5002ba64714a8440df413727016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 2736062860310457878, guid: d33ea5b7b2dfad542b9104ecdd434ed4,
+    type: 3}
 --- !u!195 &8956955788718567073
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -161,13 +163,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1.5
-  MaxHitPoint: 400
-  CurrentHitPoint: 400
-  TargetTag: Building
+  MaxHitPoint: 800
+  CurrentHitPoint: 800
+  TargetTag: Player
   target: {fileID: 0}
   Damage: 100
   AttackIntervalTime: 4
-  AttackRange: 4
+  AttackRange: 5
   DropItem: {fileID: 6212501163479302678, guid: 5b66439bfa8777644943d4d53191267d,
     type: 3}
 --- !u!114 &234236715

@@ -8,6 +8,7 @@ public class PlayerStatas : MonoBehaviour
     public float Speed = 10;
     public int MaxHitPoint = 50; 
     public int CurrentHitPoint = 50;
+    public bool is_Dead = false;
     // Start is called before the first frame update
     void Start()
     {

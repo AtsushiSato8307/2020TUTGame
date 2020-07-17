@@ -8,6 +8,8 @@ public class PlayerDead : MonoBehaviour
     private HitPoint hp;
     private bool hit_Land;
     private float canHitTime = 0.05f;
+    [SerializeField, Tooltip("死亡時エフェクト")]
+    private GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class PlayerDead : MonoBehaviour
     {
         if(hp.is_Dead)
         {
+            GetComponent<PlayerStatas>().is_Dead = true;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManagerScript>().Over(1.5f);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         timer -=Time.deltaTime;
@@ -29,7 +34,6 @@ public class PlayerDead : MonoBehaviour
     public void HitLand()
     {
         timer = canHitTime;
-        Debug.Log("hit");
     }
     public void WaterHazard()
     {

@@ -10,6 +10,9 @@ TagManager:
   - Building
   - Field
   - Lake
+  - BGM
+  - SE
+  - Soldior
   layers:
   - Default
   - TransparentFX

@@ -21,12 +21,15 @@ public class Energy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distination = Player.transform.position;
-        transform.position = Vector3.Slerp(transform.position, distination, speed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, distination) < 0.1f)
+        if (Player != null)
         {
-            Controller.ReinforcedPoint++;
-            Destroy(gameObject);
+            distination = Player.transform.position;
+            transform.position = Vector3.Slerp(transform.position, distination, speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, distination) < 0.1f)
+            {
+                Controller.ReinforcedPoint++;
+                Destroy(gameObject);
+            }
         }
     }
 }

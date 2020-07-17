@@ -58,7 +58,7 @@ public class GameStart : MonoBehaviour //, IPointerEnterHandler, IPointerExitHan
     }
     private void GoStageSelect()
     {
-        SceneManager.LoadScene("StageSelect");
+        SceneManager.LoadScene("m_StageSelect");
     }
 
 

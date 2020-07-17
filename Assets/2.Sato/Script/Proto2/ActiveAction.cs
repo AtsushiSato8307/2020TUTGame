@@ -20,6 +20,7 @@ public class ActiveAction : MonoBehaviour
     private MouseDrawer drawer;
     // コスト
     private ActionCost cost;
+    private GameObject player;
 
     // 現在選択されている状態
     public ActionType currentType;
@@ -59,13 +60,21 @@ public class ActiveAction : MonoBehaviour
         drawer = GetComponent<MouseDrawer>();
         cost = GetComponent<ActionCost>();
         controller = GetComponent<GameController>();
-        playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerMove = player.GetComponent<PlayerMove>();
+        }
         currentType = ActionType.None;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
         // アクション選択中に限りチェックする項目 /////////////////////
         if (currentType != ActionType.None)
         {
