@@ -7,7 +7,6 @@ TagManager:
   - Gimmick
   - Enemy
   - Canon
-  - Building
   layers:
   - Default
   - TransparentFX

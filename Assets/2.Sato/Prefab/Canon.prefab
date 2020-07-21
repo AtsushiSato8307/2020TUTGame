@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 173160037}
   m_Layer: 0
   m_Name: Canon
-  m_TagString: Building
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OffsetPosition: {x: 0, y: 0, z: 1}
   Size: {x: 0.02, y: 0.015, z: 1}
+  canvas: {fileID: 3654138359801571195, guid: a7cfba9fdd7d68f45840f7270c20a5fb, type: 3}
 --- !u!114 &-4706272198662810064
 MonoBehaviour:
   m_ObjectHideFlags: 0

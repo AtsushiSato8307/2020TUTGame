@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f91c6f342cd9ae4db51a9ca8ecd7510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalTime: 10
+  intervalTime: 5
   enemy: {fileID: 8956955788718567099, guid: 2ece76328dd2d4445861ddbce1e592ca, type: 3}
 --- !u!114 &3339588502433398344
 MonoBehaviour:
@@ -122,8 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa689a231a9e8e41b6a6a5bc7b287a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OffsetPosition: {x: 0, y: 0, z: 1}
+  OffsetPosition: {x: 0, y: 0, z: 0}
   Size: {x: 0.02, y: 0.015, z: 1}
+  canvas: {fileID: 3654138359801571195, guid: a7cfba9fdd7d68f45840f7270c20a5fb, type: 3}
 --- !u!114 &14418675420906822
 MonoBehaviour:
   m_ObjectHideFlags: 0

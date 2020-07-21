@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class CoolTimeUI : MonoBehaviour
 {
-    private GameObject canvas;
     private GameObject CanvasObj;
     private Slider slider;
 
     [SerializeField, Tooltip("位置調整")]
-    private Vector3 OffsetPosition = new Vector3(0,1,1);
+    private Vector3 OffsetPosition = Vector3.zero;
 
     [SerializeField, Tooltip("サイズ調整")]
-    private Vector3 Size = new Vector3(0.01f,0.01f,0);
+    private Vector3 Size = Vector3.zero;
+
+    [SerializeField, Tooltip("キャンバスのプレファブ")]
+    private GameObject canvas = null;
 
     private Transform CanvasTransform { get { return CanvasObj.transform; } }
 
@@ -24,11 +26,9 @@ public class CoolTimeUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // CanvasをLoad
-        canvas = (GameObject)Resources.Load("Prefab/CTUICanvas");
         // Canvasを子要素に生成
         CanvasObj = Instantiate(canvas, transform.position, Quaternion.identity);
-        CanvasTransform.SetParent(transform);
+        CanvasTransform.parent = transform;
         // sliderの取得
         slider = CanvasTransform.GetChild(0).GetComponent<Slider>();
 

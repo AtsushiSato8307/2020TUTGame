@@ -6,5 +6,4 @@ public class ActionCost : MonoBehaviour
     public int DefaltMoveCost;
     public int DefaltCanonCost;
     public int DefaltCampCost;
-    public int DefaltSoldiorCost;
 }
