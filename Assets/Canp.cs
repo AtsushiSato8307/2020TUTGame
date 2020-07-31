@@ -5,6 +5,8 @@ using UnityEngine;
 public class Canp : MonoBehaviour
 {
     private CoolTimeUI ctui;
+    [SerializeField, Tooltip("初期増加数")]
+    private int startSpownSoldiorNum = 0;
 
     [SerializeField, Tooltip("生成間隔")]
     private float intervalTime = 0;
@@ -27,6 +29,7 @@ public class Canp : MonoBehaviour
         ctui = GetComponent<CoolTimeUI>();
         ctui.SetCoolTime(intervalTime, timer);
         Instantiate(MaskField, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+        controller.MaxSoldiorNum += startSpownSoldiorNum;
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class Canp : MonoBehaviour
         }
         if (IsDead == true)
         {
+            controller.MaxSoldiorNum -= startSpownSoldiorNum;
             Destroy(gameObject);
         }
     }

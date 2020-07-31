@@ -139,8 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9a188578a407349b8a251991ac8132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalTime: 3
-  spownSoldiorNum: 20
+  startSpownSoldiorNum: 30
+  intervalTime: 5
+  spownSoldiorNum: 3
   MaskField: {fileID: 8477394078100022791, guid: 540f94aed82554b47898ed70f0cea7ac,
     type: 3}
 --- !u!114 &54895438748967272
