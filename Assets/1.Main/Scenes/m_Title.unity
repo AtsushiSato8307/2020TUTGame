@@ -364,7 +364,7 @@ MonoBehaviour:
   cueSheets:
   - name: BGM
     acbFile: BGM.acb
-    awbFile: 
+    awbFile: BGM.awb
     loaderStatus: 0
   - name: SFX
     acbFile: SFX.acb
