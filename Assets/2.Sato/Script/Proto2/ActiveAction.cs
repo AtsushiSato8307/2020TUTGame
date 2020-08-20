@@ -169,7 +169,8 @@ public class ActiveAction : MonoBehaviour
             var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
             var CarNav = Car.GetComponent<CarpenterNavMove>();
             CarNav.AddPoints(SetPosition);
-            CarNav.SetBilding(() => Instantiate(Canon[Level - 1], Car.transform.position, Quaternion.identity));
+            CarNav.SetBilding(() => Instantiate(Canon[Level - 1], Car.transform.position, Quaternion.identity),
+                () => controller.CurrentSoldiorNum += cost.DefaltCampCosts[Level - 1]);
         }
     }
     private void SetCamp(int Level)
@@ -181,7 +182,8 @@ public class ActiveAction : MonoBehaviour
             var Car = Instantiate(Carpenter, PlayerPosition, Quaternion.identity);
             var CarNav = Car.GetComponent<CarpenterNavMove>();
             CarNav.AddPoints(SetPosition);
-            CarNav.SetBilding(() => Instantiate(Camp[Level - 1], Car.transform.position, Quaternion.identity));
+            CarNav.SetBilding(() => Instantiate(Camp[Level - 1], Car.transform.position, Quaternion.identity),
+                () => controller.CurrentSoldiorNum += cost.DefaltCampCosts[Level - 1]);
         }
     }
     private void SetSoldior(int Level)

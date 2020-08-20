@@ -13,8 +13,13 @@ public class Castle : MonoBehaviour
     [SerializeField]
     private GameObject explosion;
 
+    [SerializeField, Tooltip("生成したボス")]
+    private GameObject boss;
+
     private bool trigger = false;
-    private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
+
+    private bool explTrigger;
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +32,45 @@ public class Castle : MonoBehaviour
     {
         if (DetectionSphere.GetComponent<DetectionSphere>().PlayerDetectionTrigger)
         {
-            gameObject.tag = "Enemy";
             if (!trigger)
             {
                 trigger = true;
-                Instantiate(enemy, gameObject.transform);
+                explTrigger = true;
+                boss = Instantiate(enemy, gameObject.transform.position ,Quaternion.identity);
             }
         }
-        if (IsDead == true)
+        if (isDead == true)
         {
             var explo = Instantiate(explosion, transform.position ,Quaternion.identity);
             explo.transform.localScale = new Vector3(5, 5, 5);
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManagerScript>().Crear(1.5f);
             Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (boss == null)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                if (explTrigger)
+                {
+                    isDead = true;
+                }
+            }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (boss == null)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                if (explTrigger)
+                {
+                    isDead = true;
+                }
+            }
         }
     }
 }

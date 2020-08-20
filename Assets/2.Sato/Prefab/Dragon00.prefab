@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931051231922513885}
   m_Layer: 9
-  m_Name: Dragon
+  m_Name: Dragon00
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 7387839047995482476}
   - component: {fileID: 3713772968495021417}
   m_Layer: 9
-  m_Name: Enemy_A
+  m_Name: Dragon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dc6d2af1f780c4aa3c11f0fcd3b0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoint: 100
-  currentHitPoint: 100
+  maxHitPoint: 500
+  currentHitPoint: 500
   is_Dead: 0
   enabledUI: 1
 --- !u!54 &7805800244148471251

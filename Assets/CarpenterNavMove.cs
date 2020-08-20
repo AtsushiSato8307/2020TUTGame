@@ -13,6 +13,8 @@ public class CarpenterNavMove : MonoBehaviour
     private GameObject TransTargetObj;
     public delegate void Bilding();
     private Bilding bilding;
+    public delegate void ReturnHome();
+    private ReturnHome home;
     private GameObject makePrefab;
 
     [SerializeField, Tooltip("目的地指定用プレファブ")]
@@ -91,12 +93,18 @@ public class CarpenterNavMove : MonoBehaviour
         }
         else
         {
+            home.Invoke();
             Destroy(gameObject);
         }
     }
-    public void SetBilding(Bilding bilding)
+    /// <summary>派遣用処理
+    /// </summary>
+    /// <param name="bilding">建築処理</param>
+    /// <param name="home">帰宅処理</param>
+    public void SetBilding(Bilding bilding, ReturnHome home)
     {
         this.bilding = bilding;
+        this.home = home;
     }
 
     /// <summary>目的地オブジェクトの追加

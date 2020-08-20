@@ -43,6 +43,9 @@ public class SoldiorAttack : MonoBehaviour
     void Attack()
     {
         audio.PlayOneShot(audio.clip);
-        Target.GetComponent<HitPoint>().currentHitPoint -= Damage;
+        if (Target != null)
+        {
+            Target.GetComponent<HitPoint>().currentHitPoint -= Damage;
+        }
     }
 }
