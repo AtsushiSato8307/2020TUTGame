@@ -10,6 +10,13 @@ public class EnemyMotion : MonoBehaviour
     public bool IsAttack;
     public float speed;
 
+    private float moveAudioTimer = 1f;
+
+    [SerializeField, Tooltip("移動音")]
+    private CriAtomSource moveAudio;
+    [SerializeField, Tooltip("攻撃音")]
+    private CriAtomSource attackSource;
+
     private Vector3 latestPos;
 
     // Start is called before the first frame update
@@ -27,9 +34,25 @@ public class EnemyMotion : MonoBehaviour
     void SetMotion()
     {
         anim.SetFloat("MoveSpeed", speed);
+        if (speed > 0.5f)
+        {
+            moveAudioTimer -= Time.deltaTime;
+            if (moveAudio.status != CriAtomSource.Status.Playing)
+            {
+                if (moveAudioTimer < 0)
+                {
+                    moveAudio.Play();
+                    moveAudioTimer = 1.208f;
+                }
+            }
+        }
     }
     public void Attack()
     {
         anim.SetTrigger("AttackTrigger");
+        if (attackSource != null)
+        {
+            attackSource.Play();
+        }
     }
 }

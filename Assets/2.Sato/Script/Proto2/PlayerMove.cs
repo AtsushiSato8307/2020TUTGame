@@ -6,6 +6,9 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField, Tooltip("Speed")]
     private float speed = 0;
+    [SerializeField, Tooltip("移動音")]
+    private CriAtomSource audio;
+
     public bool CompulsionStop = false;
     // 移動許可
     bool is_move;
@@ -40,6 +43,13 @@ public class PlayerMove : MonoBehaviour
             if (CompulsionStop == false)
             {
                 transLog = transform.position;
+            }
+        }
+        if (is_move)
+        {
+            if (audio.status != CriAtomSource.Status.Playing)
+            {
+                audio.Play();
             }
         }
         // 2点間の距離が0.1以上離れていたら移動

@@ -15,6 +15,9 @@ public class EnergyDrag : MonoBehaviour
     // 処理遅延用
     private int nextFrameIs_Drag;
 
+    [SerializeField, Tooltip("強化音")]
+    private CriAtomSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +58,7 @@ public class EnergyDrag : MonoBehaviour
         if (is_Drag >= Controller.costs.ReinforcedCost[costnum])
         {
             Controller.ReinforcedPoint -= Controller.costs.ReinforcedCost[costnum];
+            audio.Play();
         }
     }
 }

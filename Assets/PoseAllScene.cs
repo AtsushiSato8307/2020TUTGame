@@ -8,6 +8,10 @@ public class PoseAllScene : MonoBehaviour
     private bool isPose;
     [SerializeField, Tooltip("ポーズプレファブ")]
     private GameObject posePrefs;
+    [SerializeField, Tooltip("ポーズオープン音")]
+    private CriAtomSource poseAudio_Open;
+    [SerializeField, Tooltip("ポーズクローズ音")]
+    private CriAtomSource poseAudio_Close;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,13 @@ public class PoseAllScene : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPose = !isPose;
+            if (isPose)
+            {
+                poseAudio_Open.Play();
+            }
+            else {
+                poseAudio_Close.Play();
+            }
         }
         if (isPose)
         {

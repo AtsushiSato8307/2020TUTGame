@@ -7,7 +7,9 @@ public class SoldiorAttack : MonoBehaviour
     private SoldiorStatas statas;
     private float timer;
     private Vector3 beforeVect;
-    private AudioSource audio;
+    [SerializeField,Tooltip("攻撃音")]
+    private CriAtomSource atackAudio;
+
 
     private GameObject Target { get { return statas.Target; } }
     private int Damage { get { return statas.Damage; } }
@@ -17,7 +19,6 @@ public class SoldiorAttack : MonoBehaviour
         statas = GetComponent<SoldiorStatas>();
         timer = statas.AttackIntervalTime;
         beforeVect = transform.position;
-        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,14 +36,13 @@ public class SoldiorAttack : MonoBehaviour
         }
         else
         {
-            GetComponent<SoldiorMotion>().m_state = SoldiorMotion.SoldiorMotionState.Walk;
         }
         beforeVect = transform.position;
     }
 
     void Attack()
     {
-        audio.PlayOneShot(audio.clip);
+        atackAudio.Play();
         if (Target != null)
         {
             Target.GetComponent<HitPoint>().currentHitPoint -= Damage;

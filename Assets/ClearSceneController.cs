@@ -20,7 +20,7 @@ public class ClearSceneController : MonoBehaviour
     }
     public void PlaySE(int SENum)
     {
-        se.PlaySe(1);
+        se.PlayMenuDicision();
     }
     public void ChangeScene(string SceneName)
     {

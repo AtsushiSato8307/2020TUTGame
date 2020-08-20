@@ -109,6 +109,8 @@ GameObject:
   - component: {fileID: 424847422}
   - component: {fileID: 424847423}
   - component: {fileID: 278231315}
+  - component: {fileID: 392644967}
+  - component: {fileID: 1652816959054264133}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -204,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  audio: {fileID: 1652816959054264133}
   CompulsionStop: 0
 --- !u!114 &424847421
 MonoBehaviour:
@@ -248,8 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  MaxHitPoint: 999
-  CurrentHitPoint: 999
+  MaxHitPoint: 300
+  CurrentHitPoint: 300
   is_Dead: 0
 --- !u!114 &278231315
 MonoBehaviour:
@@ -265,3 +268,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 2736062860310457878, guid: d33ea5b7b2dfad542b9104ecdd434ed4,
     type: 3}
+--- !u!114 &392644967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957239802168251634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7d42e042e4c9c4db4bde98b863e167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regionOnStart: {fileID: 0}
+  activateListenerOnEnable: 0
+--- !u!114 &1652816959054264133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957239802168251634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: Castle_move
+  _cueSheet: SFX
+  _regionOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1

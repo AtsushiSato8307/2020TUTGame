@@ -44,6 +44,14 @@ public class SoldiorNavMove : MonoBehaviour
         {
             GoToNextTarget();
         }
+        if (CurrentTarget == null)
+        {
+            GetComponent<SoldiorMotion>().m_state = SoldiorMotion.SoldiorMotionState.Wait;
+        }
+        else
+        {
+            GetComponent<SoldiorMotion>().m_state = SoldiorMotion.SoldiorMotionState.Walk;
+        }
     }
     /// <summary> 次の目的地へ
     /// </summary>
@@ -55,7 +63,8 @@ public class SoldiorNavMove : MonoBehaviour
         }
         // キューが空ならエネミーをターゲットに
         else {
-            AddPoints(GameObject.FindGameObjectWithTag("Enemy"));
+            var enemy = GameObject.FindGameObjectWithTag("Enemy");
+            AddPoints(enemy);
         }
     }
 
