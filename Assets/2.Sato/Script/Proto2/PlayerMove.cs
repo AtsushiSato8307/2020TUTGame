@@ -80,5 +80,6 @@ public class PlayerMove : MonoBehaviour
         this.distination = distination;
         moveEndCall = endMove;
         is_move = true;
+        transform.forward = Vector3.Normalize(distination - transform.position);
     }
 }

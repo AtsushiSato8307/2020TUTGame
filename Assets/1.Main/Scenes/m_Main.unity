@@ -5478,11 +5478,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3396537863199108907, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Name
-      value: Contanu
-      objectReference: {fileID: 0}
     - target: {fileID: 3396537863258429325, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5588,11 +5583,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3396537863258429324, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
       propertyPath: m_Color.r
@@ -5612,6 +5602,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537862221829982, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u30BF\u30A4\u30C8\u30EB\u3078\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537863199108907, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Name
+      value: Contanu
       objectReference: {fileID: 0}
     - target: {fileID: 3396537863199108909, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
@@ -5671,6 +5671,11 @@ PrefabInstance:
     - target: {fileID: 3396537863199108909, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537863258429324, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3396537863606277346, guid: 90724af0045d13c4dba9f729bcaafd5f,
@@ -5742,11 +5747,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537862221829982, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Text
-      value: "\u30BF\u30A4\u30C8\u30EB\u3078\n"
       objectReference: {fileID: 0}
     - target: {fileID: 3396537862181658100, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
@@ -6447,7 +6447,7 @@ PrefabInstance:
     - target: {fileID: 6957239802168251639, guid: 3a255d49a192428448163b2d910a6ec2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.3936586
+      value: -5.825
       objectReference: {fileID: 0}
     - target: {fileID: 6957239802168251639, guid: 3a255d49a192428448163b2d910a6ec2,
         type: 3}
