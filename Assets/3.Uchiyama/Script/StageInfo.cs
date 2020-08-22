@@ -28,7 +28,7 @@ public class StageInfo : MonoBehaviour
         MyCanvas.SetActive("Stage4_Info", false);
         */
 
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < noStage.Length; i++)
         {
             noStage[i].SetActive(false);
         }
