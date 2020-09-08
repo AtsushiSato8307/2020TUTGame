@@ -41,8 +41,11 @@ public class Canp : MonoBehaviour
         if (timer > intervalTime)
         {
             timer = 0;
-            controller.MaxSoldiorNum += spownSoldiorNum;
-            controller.CurrentSoldiorNum += spownSoldiorNum;
+            //controller.MaxSoldiorNum += spownSoldiorNum;
+            if (controller.CurrentSoldiorNum < controller.MaxSoldiorNum)
+            {
+                controller.CurrentSoldiorNum += spownSoldiorNum;
+            }
         }
         if (IsDead == true)
         {

@@ -52,4 +52,9 @@ public class PoseAllScene : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         isPose = false;
     }
+    public void ReLoad()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        isPose = false;
+    }
 }

@@ -8,7 +8,8 @@ public class SE : MonoBehaviour
     public CriAtomSource menu_cancel;
     public CriAtomSource game_dicision;
     public CriAtomSource cursol;
-    
+    public CriAtomSource open;
+    public CriAtomSource close;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,13 @@ public class SE : MonoBehaviour
             case 4:
                 PlayGameDicision();
                 break;
+            case 5:
+                Open();
+                break;
+            case 6:
+                Close();
+                break;
+
         }
     }
     public void PlayCursol()
@@ -52,5 +60,13 @@ public class SE : MonoBehaviour
     public void PlayGameDicision()
     {
         game_dicision.Play();
+    }
+    public void Open()
+    {
+        open.Play();
+    }
+    public void Close()
+    {
+        close.Play();
     }
 }

@@ -20,8 +20,6 @@ public class SoldiorMotion : MonoBehaviour
     [SerializeField, Tooltip("攻撃モデル")]
     private GameObject AttackMotion;
 
-    [SerializeField, Tooltip("移動音")]
-    private CriAtomSource moveAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,17 +35,17 @@ public class SoldiorMotion : MonoBehaviour
         {
             SetMotion();
         }
-        if (m_state == SoldiorMotionState.Walk)
-        {
-            if (moveAudio.status != CriAtomSource.Status.Playing)
-            {
-                moveAudio.Play();
-            }
-        }
-        else
-        {
-            moveAudio.Stop();
-        }
+        //if (m_state == SoldiorMotionState.Walk)
+        //{
+        //    if (moveAudio.status != CriAtomSource.Status.Playing)
+        //    {
+        //        moveAudio.Play();
+        //    }
+        //}
+        //else
+        //{
+        //    moveAudio.Stop();
+        //}
         // 更新
         beforeState = m_state;
     }

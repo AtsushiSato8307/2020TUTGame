@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a512ff00e17b88048838ed71baa6a9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaltMoveCost: 30
+  DefaltMoveCost: 0
   DefaltCanonCosts: 140000001e00000032000000
   DefaltCampCosts: 1e0000002800000032000000
   DefaltSoldiorCost: 20

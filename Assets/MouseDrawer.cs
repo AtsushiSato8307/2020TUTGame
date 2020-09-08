@@ -22,7 +22,7 @@ public class MouseDrawer : MonoBehaviour
     [SerializeField, Tooltip("UIオブジェクト")]
     private GameObject uiObj;
 
-    private Vector3 PlayerPosition { get { return GameObject.FindGameObjectWithTag("Player").transform.position; } }
+    private Vector3 PlayerPosition { get { if (GameObject.FindGameObjectWithTag("Player") != null) return GameObject.FindGameObjectWithTag("Player").transform.position; else return Vector3.zero; } }
 
     // Start is called before the first frame update
     void Start()
