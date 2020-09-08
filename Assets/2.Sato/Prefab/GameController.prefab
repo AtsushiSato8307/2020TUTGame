@@ -96,7 +96,7 @@ MonoBehaviour:
   DefaltMoveCost: 0
   DefaltCanonCosts: 140000001e00000032000000
   DefaltCampCosts: 1e0000002800000032000000
-  DefaltSoldiorCost: 20
+  DefaltSoldiorCost: 140000001e0000001e000000
   ReinforcedMoveCost: 0
   ReinforcedCanonCosts: 00000000050000000a000000
   ReinforcedCampCosts: 00000000050000000a000000

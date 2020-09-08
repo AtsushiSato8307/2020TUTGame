@@ -51,9 +51,9 @@ public class Canp : MonoBehaviour
         {
             controller.MaxSoldiorNum -= startSpownSoldiorNum;
             controller.CurrentSoldiorNum -= startSpownSoldiorNum;
-            if (controller.CurrentSoldiorNum < 0)
+            if (controller.MaxSoldiorNum < controller.CurrentSoldiorNum)
             {
-                controller.CurrentSoldiorNum = 0;
+                controller.MaxSoldiorNum = controller.CurrentSoldiorNum;
             }
             Destroy(gameObject);
         }

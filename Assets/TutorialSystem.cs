@@ -101,7 +101,7 @@ public class TutorialSystem : MonoBehaviour
                     TutorialUiObjects[3].SetActive(true);
                 }
                 // 4main処理
-                if (GameObject.Find("Soldior(Clone)"))
+                if (GameObject.Find("Soldior1(Clone)"))
                 {
                     EnubledOk();
                     CurrentEventNum++;

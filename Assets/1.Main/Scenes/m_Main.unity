@@ -5468,6 +5468,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3396537863199108907, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Name
+      value: Contanu
+      objectReference: {fileID: 0}
     - target: {fileID: 3396537863258429325, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5717,11 +5722,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537863199108907, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Name
-      value: Contanu
       objectReference: {fileID: 0}
     - target: {fileID: 3396537863258429324, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
@@ -13403,11 +13403,6 @@ PrefabInstance:
     - target: {fileID: 5618756537387587725, guid: 180c1af4495bd9a48827b73d1753d344,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
-        type: 3}
-      propertyPath: DefaltMoveCost
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

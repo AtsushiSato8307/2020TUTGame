@@ -188,11 +188,11 @@ public class ActiveAction : MonoBehaviour
     }
     private void SetSoldior(int Level)
     {
-        if (controller.CurrentSoldiorNum > cost.DefaltSoldiorCost)
+        if (controller.CurrentSoldiorNum > cost.DefaltSoldiorCost[Level -1])
         {
-            controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost;
+            controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost[Level - 1];
             var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-            var sol = Instantiate(Soldior[0], PlayerPosition, Quaternion.identity);
+            var sol = Instantiate(Soldior[Level - 1], PlayerPosition, Quaternion.identity);
             sol.GetComponent<SoldiorNavMove>().AddPoints(SetPosition);
         }
     }

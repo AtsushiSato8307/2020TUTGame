@@ -2659,10 +2659,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5618756537579013053, guid: 180c1af4495bd9a48827b73d1753d344,
+    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: DefaltCanonCosts.Array.data[0]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: DefaltCampCosts.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: DefaltSoldiorCost.Array.data[0]
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1427426931115078794, guid: 180c1af4495bd9a48827b73d1753d344,
         type: 3}
@@ -2674,25 +2684,15 @@ PrefabInstance:
       propertyPath: CurrentSoldiorNum
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
+    - target: {fileID: 1503039353868946318, guid: 180c1af4495bd9a48827b73d1753d344,
         type: 3}
-      propertyPath: DefaltCampCosts.Array.data[0]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
-        type: 3}
-      propertyPath: DefaltMoveCost
+      propertyPath: is_Interactives.Array.data[1]
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
+    - target: {fileID: 1503039353868946318, guid: 180c1af4495bd9a48827b73d1753d344,
         type: 3}
-      propertyPath: DefaltCanonCosts.Array.data[0]
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1427426931115078796, guid: 180c1af4495bd9a48827b73d1753d344,
-        type: 3}
-      propertyPath: DefaltSoldiorCost
-      value: 20
+      propertyPath: is_Interactives.Array.data[2]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 180c1af4495bd9a48827b73d1753d344, type: 3}
@@ -3511,31 +3511,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.7294118
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537862221829982, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Text
-      value: "\u30BF\u30A4\u30C8\u30EB\u3078\n"
-      objectReference: {fileID: 0}
     - target: {fileID: 3396537863199108909, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3595,16 +3570,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537863258429324, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396537863606277346, guid: 90724af0045d13c4dba9f729bcaafd5f,
-        type: 3}
-      propertyPath: m_Name
-      value: GoTitle
       objectReference: {fileID: 0}
     - target: {fileID: 3396537863606277348, guid: 90724af0045d13c4dba9f729bcaafd5f,
         type: 3}
@@ -3690,6 +3655,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537863258429324, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537863606277346, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Name
+      value: GoTitle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537862181658101, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396537862221829982, guid: 90724af0045d13c4dba9f729bcaafd5f,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u30BF\u30A4\u30C8\u30EB\u3078\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90724af0045d13c4dba9f729bcaafd5f, type: 3}
@@ -5672,6 +5672,8 @@ MonoBehaviour:
   menu_cancel: {fileID: 817768810}
   game_dicision: {fileID: 1289842353}
   cursol: {fileID: 799098321}
+  open: {fileID: 0}
+  close: {fileID: 0}
 --- !u!114 &1216337700
 MonoBehaviour:
   m_ObjectHideFlags: 0
