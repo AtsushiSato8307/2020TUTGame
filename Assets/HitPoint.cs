@@ -8,6 +8,7 @@ public class HitPoint : MonoBehaviour
     private hitPointUI HPUI;
     public int maxHitPoint = 1;
     public int currentHitPoint = 1;
+    public bool is_Dead = false;
 
     [SerializeField, Tooltip("UIを有効化するか？")]
     private bool enabledUI = true;
@@ -25,7 +26,7 @@ public class HitPoint : MonoBehaviour
         HPUI.SetHitPoint(maxHitPoint, currentHitPoint);
         if (currentHitPoint <= 0)
         {
-            Destroy(gameObject);
+            is_Dead = true;
         }
         HPUI.enabled = enabledUI;
     }

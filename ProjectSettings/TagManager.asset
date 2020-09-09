@@ -7,6 +7,13 @@ TagManager:
   - Gimmick
   - Enemy
   - Canon
+  - Building
+  - Field
+  - Lake
+  - BGM
+  - SE
+  - Soldior
+  - DataManager
   layers:
   - Default
   - TransparentFX
@@ -18,9 +25,9 @@ TagManager:
   - 
   - Field
   - Enemy
-  - 
-  - 
-  - 
+  - Wall
+  - Land
+  - Soldior
   - 
   - 
   - 

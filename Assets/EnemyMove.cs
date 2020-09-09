@@ -5,17 +5,23 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private GameObject target;
+    private EnemyStatas statas;
+    private GameObject Target { get { return statas.target; } }
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        statas = GetComponent<EnemyStatas>();
+        agent.speed = statas.Speed;
+        agent.stoppingDistance = statas.AttackRange -0.1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = target.transform.position;
+        if (Target != null)
+        {
+            agent.destination = Target.transform.position;
+        }
     }
 }

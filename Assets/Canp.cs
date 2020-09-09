@@ -5,13 +5,19 @@ using UnityEngine;
 public class Canp : MonoBehaviour
 {
     private CoolTimeUI ctui;
+    [SerializeField, Tooltip("初期増加数")]
+    private int startSpownSoldiorNum = 0;
 
     [SerializeField, Tooltip("生成間隔")]
     private float intervalTime = 0;
 
     [SerializeField, Tooltip("生成数")]
     private int spownSoldiorNum = 0;
-    
+
+    [SerializeField, Tooltip("マスクのフィールド")]
+    private GameObject MaskField;
+
+    private bool IsDead { get { return GetComponent<HitPoint>().is_Dead; } }
     // タイマー
     private float timer;
     private GameController controller;
@@ -22,6 +28,8 @@ public class Canp : MonoBehaviour
         // UIの設定
         ctui = GetComponent<CoolTimeUI>();
         ctui.SetCoolTime(intervalTime, timer);
+        Instantiate(MaskField, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+        controller.MaxSoldiorNum += startSpownSoldiorNum;
     }
 
     // Update is called once per frame
@@ -33,8 +41,21 @@ public class Canp : MonoBehaviour
         if (timer > intervalTime)
         {
             timer = 0;
-            controller.MaxSoldiorNum += spownSoldiorNum;
-            controller.CurrentSoldiorNum += spownSoldiorNum;
+            //controller.MaxSoldiorNum += spownSoldiorNum;
+            if (controller.CurrentSoldiorNum < controller.MaxSoldiorNum)
+            {
+                controller.CurrentSoldiorNum += spownSoldiorNum;
+            }
+        }
+        if (IsDead == true)
+        {
+            controller.MaxSoldiorNum -= startSpownSoldiorNum;
+            controller.CurrentSoldiorNum -= startSpownSoldiorNum;
+            if (controller.MaxSoldiorNum < controller.CurrentSoldiorNum)
+            {
+                controller.MaxSoldiorNum = controller.CurrentSoldiorNum;
+            }
+            Destroy(gameObject);
         }
     }
 }
