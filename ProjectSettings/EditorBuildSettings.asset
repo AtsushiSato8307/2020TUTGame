@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/3.Uchiyama/Scene/tutorial.unity
     guid: 0121fddca77cb75439f3a1a082357d4f
+  - enabled: 1
+    path: Assets/3.Uchiyama/Scene/tutorial4.unity
+    guid: 26157821a0fa58e49a57bd88a8b973f1
+  - enabled: 1
+    path: Assets/3.Uchiyama/Scene/tutorial3.unity
+    guid: 03167058a97ec114e8e247a3fef94d7e
+  - enabled: 1
+    path: Assets/3.Uchiyama/Scene/tutorial2.unity
+    guid: 6d19d91a0616f0842952ede38bf31e09
+  - enabled: 1
+    path: Assets/3.Uchiyama/Scene/tutorial1.unity
+    guid: ef74c30ae931f16428e94045d6c6fd69
   m_configObjects: {}

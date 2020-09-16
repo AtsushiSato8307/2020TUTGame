@@ -36,7 +36,12 @@ public class Castle : MonoBehaviour
             {
                 trigger = true;
                 explTrigger = true;
-                boss = Instantiate(enemy, gameObject.transform.position ,Quaternion.identity);
+                if (enemy != null)
+                {
+                    boss = Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+                }
+                else {
+                }
             }
         }
         if (isDead == true)

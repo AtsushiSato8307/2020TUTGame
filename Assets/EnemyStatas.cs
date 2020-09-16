@@ -35,10 +35,24 @@ public class  EnemyStatas : MonoBehaviour
         {
             Retarget();   
         }
+        if (target.tag == "Untagged")
+        {
+            Retarget();
+        }
     }
     void Retarget()
     {
+        var tagets = GameObject.FindGameObjectsWithTag(TargetTag);
         target = GameObject.FindGameObjectWithTag(TargetTag);
+        float distance = float.MaxValue;
+        foreach (var i in tagets)
+        {
+            if (distance > Vector2.Distance(transform.position, i.transform.position))
+            {
+                distance = Vector2.Distance(transform.position, i.transform.position);
+                target = i;
+            }
+        }
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player");

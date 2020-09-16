@@ -38,6 +38,11 @@ public class SoldiorNavMove : MonoBehaviour
             {
                 GameObject.Destroy(TransTargetObj);
             }
+            // ターゲットのタグが変わった場合
+            if (CurrentTarget.tag == "Untagged")
+            {
+                GoToNextTarget();
+            }
         }
         // ターゲットがなければ次のターゲットへ
         else
@@ -70,6 +75,7 @@ public class SoldiorNavMove : MonoBehaviour
             {
                 if (distance > Vector2.Distance(transform.position, i.transform.position))
                 {
+                    distance = Vector2.Distance(transform.position, i.transform.position);
                     targetEnemy = i;
                 }
             }

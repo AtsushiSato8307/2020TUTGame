@@ -17,8 +17,8 @@ public class Neutal : MonoBehaviour
     private HitPoint EnemyBuildingHp;
     
     // CurrentHP
-    private int enemyBuild_currentHp { set { playerBuildingHp.currentHitPoint = value; } get { return playerBuildingHp.currentHitPoint; } }
-    private int playerBuild_currentHp { set { EnemyBuildingHp.currentHitPoint = value; } get { return EnemyBuildingHp.currentHitPoint; } }
+    private int enemyBuild_currentHp { set { EnemyBuildingHp.currentHitPoint = value; } get { return EnemyBuildingHp.currentHitPoint; } }
+    private int playerBuild_currentHp { set { playerBuildingHp.currentHitPoint = value; } get { return playerBuildingHp.currentHitPoint; } }
 
     // Start is called before the first frame update
     void Start()
@@ -34,23 +34,31 @@ public class Neutal : MonoBehaviour
         if (enemyBuild_currentHp <= 0)
         {
             Fall();
-            enemy_building.GetComponent<NeutralOneSide>().buildingIntaractive = true;
-            player_building.GetComponent<NeutralOneSide>().buildingIntaractive = false;
+            var enemySide = enemy_building.GetComponent<NeutralOneSide>();
+            enemySide.buildingIntaractive = false;
+            enemySide.tag = "Untagged";
+            var playerSide = player_building.GetComponent<NeutralOneSide>();
+            playerSide.buildingIntaractive = true;
+            playerSide.tag = "Building";
             ChangeVisual(1);
         }
         else if (playerBuild_currentHp <= 0)
         {
             Fall();
-            enemy_building.GetComponent<NeutralOneSide>().buildingIntaractive = false;
-            player_building.GetComponent<NeutralOneSide>().buildingIntaractive = true;
+            var enemySide = enemy_building.GetComponent<NeutralOneSide>();
+            enemySide.buildingIntaractive = true;
+            enemySide.tag = "Enemy";
+            var playerSide = player_building.GetComponent<NeutralOneSide>();
+            playerSide.buildingIntaractive = false;
+            playerSide.tag = "Untagged";
             ChangeVisual(2);
         }
     }
     // どちらか陥落時処理
     private void Fall()
     {
-        enemyBuild_currentHp = playerBuildingHp.maxHitPoint;
-        playerBuild_currentHp = EnemyBuildingHp.maxHitPoint;
+        enemyBuild_currentHp = EnemyBuildingHp.maxHitPoint;
+        playerBuild_currentHp = playerBuildingHp.maxHitPoint;
     }
     private void ChangeVisual(int num)
     {
