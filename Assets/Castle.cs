@@ -27,6 +27,7 @@ public class Castle : MonoBehaviour
 
     private bool explTrigger;
     private bool isDead = false;
+    private bool BreakBarria;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +37,10 @@ public class Castle : MonoBehaviour
         {
             // ボス無し
             barria.SetActive(false);
+            BreakBarria = true;
         }
-        else {
+        else
+        {
             barria.SetActive(true);
         }
     }
@@ -57,22 +60,28 @@ public class Castle : MonoBehaviour
                     lightning.GetComponent<LightningBoltScript>().EndObject = boss;
                     lightning.SetActive(true);
                 }
-                else {
+                else
+                {
                 }
             }
         }
         if (boss == null && trigger)
         {
             lightning.SetActive(false);
-                // ボス無し
+            // ボス無し
             barria.SetActive(false);
+            if (BreakBarria == false)
+            {
+                BreakBarria = true;
+                GetComponent<CriAtomSource>().Play();
+            }
         }
         // 城破壊時
         if (isDead == true)
         {
             // ボム荷下ろし
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatas>().HasBomb = false;
-            var explo = Instantiate(explosion, transform.position ,Quaternion.identity);
+            var explo = Instantiate(explosion, transform.position, Quaternion.identity);
             explo.transform.localScale = new Vector3(5, 5, 5);
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManagerScript>().Crear(1.5f);
             Destroy(gameObject);

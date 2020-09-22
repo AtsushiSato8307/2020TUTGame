@@ -162,7 +162,7 @@ public class ActiveAction : MonoBehaviour
     }
     private void SetCanon(int Level)
     {
-        if (controller.CurrentSoldiorNum > cost.DefaltCanonCosts[Level - 1])
+        if (controller.CurrentSoldiorNum >= cost.DefaltCanonCosts[Level - 1])
         {
             controller.CurrentSoldiorNum -= cost.DefaltCanonCosts[Level - 1];
             var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -175,7 +175,7 @@ public class ActiveAction : MonoBehaviour
     }
     private void SetCamp(int Level)
     {
-        if (controller.CurrentSoldiorNum > cost.DefaltCampCosts[Level - 1])
+        if (controller.CurrentSoldiorNum >= cost.DefaltCampCosts[Level - 1])
         {
             controller.CurrentSoldiorNum -= cost.DefaltCampCosts[Level - 1];
             var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -188,7 +188,7 @@ public class ActiveAction : MonoBehaviour
     }
     private void SetSoldior(int Level)
     {
-        if (controller.CurrentSoldiorNum > cost.DefaltSoldiorCost[Level -1])
+        if (controller.CurrentSoldiorNum >= cost.DefaltSoldiorCost[Level -1])
         {
             controller.CurrentSoldiorNum -= cost.DefaltSoldiorCost[Level - 1];
             var PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
