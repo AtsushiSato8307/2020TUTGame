@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f529aa944b914449d62b8c40f188fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acfFile: "MUNCH\u03B1"
+  acfFile: "MUNCH\u03B1.acf"
   cueSheets:
   - name: BGM
     acbFile: BGM.acb
@@ -374,7 +374,7 @@ MonoBehaviour:
     loaderStatus: 0
   dspBusSetting: 
   dontDestroyOnLoad: 0
-  dontRemoveExistsCueSheet: 0
+  dontRemoveExistsCueSheet: 1
 --- !u!4 &449162377
 Transform:
   m_ObjectHideFlags: 0

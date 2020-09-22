@@ -168,7 +168,7 @@ MonoBehaviour:
   CurrentHitPoint: 1000
   TargetTag: Soldior
   target: {fileID: 0}
-  Damage: 70
+  Damage: 25
   AttackIntervalTime: 2
   AttackRange: 5
   DropItem: {fileID: 6212501163479302678, guid: 5b66439bfa8777644943d4d53191267d,
