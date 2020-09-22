@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DigitalRuby.LightningBolt;
 
 public class Castle : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class Castle : MonoBehaviour
     [SerializeField, Tooltip("生成したボス")]
     private GameObject boss;
 
+    [SerializeField, Tooltip("バリア")]
+    private GameObject barria;
+
+    [SerializeField, Tooltip("電撃")]
+    private GameObject lightning;
+
     private bool trigger = false;
 
     private bool explTrigger;
@@ -24,7 +31,15 @@ public class Castle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        lightning.SetActive(false);
+        if (enemy == null)
+        {
+            // ボス無し
+            barria.SetActive(false);
+        }
+        else {
+            barria.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -39,13 +54,24 @@ public class Castle : MonoBehaviour
                 if (enemy != null)
                 {
                     boss = Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+                    lightning.GetComponent<LightningBoltScript>().EndObject = boss;
+                    lightning.SetActive(true);
                 }
                 else {
                 }
             }
         }
+        if (boss == null && trigger)
+        {
+            lightning.SetActive(false);
+                // ボス無し
+            barria.SetActive(false);
+        }
+        // 城破壊時
         if (isDead == true)
         {
+            // ボム荷下ろし
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatas>().HasBomb = false;
             var explo = Instantiate(explosion, transform.position ,Quaternion.identity);
             explo.transform.localScale = new Vector3(5, 5, 5);
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManagerScript>().Crear(1.5f);

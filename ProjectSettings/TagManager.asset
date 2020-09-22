@@ -15,6 +15,7 @@ TagManager:
   - Soldior
   - DataManager
   - Neutral
+  - Info
   layers:
   - Default
   - TransparentFX

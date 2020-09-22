@@ -23,7 +23,7 @@ public class  EnemyStatas : MonoBehaviour
     {
         hp = GetComponent<HitPoint>();
         move = GetComponent<EnemyMove>();
-        target = GameObject.FindGameObjectWithTag(TargetTag);
+        Retarget();
     }
 
     // Update is called once per frame

@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atackAudio: {fileID: 5206510621995891623}
+  AttackEffectObject: {fileID: 0}
 --- !u!114 &-2412462463594742993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playOnStart: 0
-  _cueName: Sword
+  _cueName: Shield
   _cueSheet: SFX
   _regionOnStart: {fileID: 0}
   _use3dPositioning: 1

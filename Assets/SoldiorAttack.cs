@@ -9,6 +9,8 @@ public class SoldiorAttack : MonoBehaviour
     private Vector3 beforeVect;
     [SerializeField,Tooltip("攻撃音")]
     private CriAtomSource atackAudio;
+    [SerializeField, Tooltip("攻撃エフェクト")]
+    private GameObject AttackEffectObject;
 
 
     private GameObject Target { get { return statas.Target; } }
@@ -26,6 +28,7 @@ public class SoldiorAttack : MonoBehaviour
     {
         if (Target != null && Vector3.Distance(transform.position, Target.transform.position) < statas.AttackRange)
         {
+            GetComponent<Transform>().LookAt(Target.transform.position);
             GetComponent<SoldiorMotion>().m_state = SoldiorMotion.SoldiorMotionState.Attack;
             timer -= Time.deltaTime;
             if (timer < 0)
@@ -42,10 +45,14 @@ public class SoldiorAttack : MonoBehaviour
 
     void Attack()
     {
-        atackAudio.Play();
         if (Target != null)
         {
             Target.GetComponent<HitPoint>().currentHitPoint -= Damage;
+            atackAudio.Play();
+            if (AttackEffectObject != null)
+            {
+                Instantiate(AttackEffectObject);
+            }
         }
     }
 }

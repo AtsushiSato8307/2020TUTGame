@@ -126,7 +126,7 @@ public class ActiveAction : MonoBehaviour
                 // 移動していない
                 else
                 {
-                    if (controller.CurrentSoldiorNum > cost.DefaltMoveCost)
+                    if (controller.CurrentSoldiorNum >= cost.DefaltMoveCost)
                     {
                         is_Move = true;
                         controller.CurrentSoldiorNum -= cost.DefaltMoveCost;

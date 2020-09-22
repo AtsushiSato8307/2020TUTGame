@@ -5101,10 +5101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f203e8ef9ab05c0428a22d3c40a2be68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bomb: {fileID: 1606500083860172162}
   Speed: 5
   MaxHitPoint: 300
   CurrentHitPoint: 300
   is_Dead: 0
+  HasBomb: 1
 --- !u!114 &278231315
 MonoBehaviour:
   m_ObjectHideFlags: 0
