@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;using UnityEngine.UI;using UnityEngine.SceneManagement;using UnityEngine.Audio;
+using UnityEngine;using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 
 public class SEBGM_tyousei : MonoBehaviour
@@ -33,9 +35,11 @@ public class SEBGM_tyousei : MonoBehaviour
     void Update()
     {
     //  slider.value  = BGMvol;
+     
      BGM.volume = BGMslider.value;
      SE.volume =  SEslider.value;
       BGMvol=  BGM.volume;
+        
     //  return BGMvol;
      }
      

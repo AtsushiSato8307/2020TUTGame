@@ -13,11 +13,11 @@ public class ScrollHandol : MonoBehaviour
             float aRatio = work.GetComponent<Scrollbar>().value;
             if (isUp)
             {
-                aRatio -= 0.05f; // for from top to bottom direction
+                aRatio -= 0.01f; // for from top to bottom direction
             }
             else
             {
-                aRatio += 0.05f; // for from top to bottom direction
+                aRatio += 0.01f; // for from top to bottom direction
             }
             work.GetComponent<Scrollbar>().value = aRatio;
         }

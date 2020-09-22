@@ -2130,6 +2130,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3410073329926425370, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: b883b520bd9d49e40b24a273714c5d5a,
+        type: 3}
+    - target: {fileID: 3410073329926425370, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: f2d05eecf59f7664cb56a9f5c3524790, type: 2}
+    - target: {fileID: 3410073329926425368, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: f2d05eecf59f7664cb56a9f5c3524790, type: 2}
+    - target: {fileID: 3410073329926425369, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410073329926425369, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410073329926425369, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410073329926425369, guid: 180c1af4495bd9a48827b73d1753d344,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 560
+      objectReference: {fileID: 0}
     - target: {fileID: 5618756537387587730, guid: 180c1af4495bd9a48827b73d1753d344,
         type: 3}
       propertyPath: m_Name

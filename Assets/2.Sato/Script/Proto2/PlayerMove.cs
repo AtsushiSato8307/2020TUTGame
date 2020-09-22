@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour
             dir = Vector3.Normalize(distination - transform.position);
             transform.position += dir * speed * Time.deltaTime;
         }
-        else if (Vector3.Distance(transform.position, distination) > 0.1f)
+        else if (Vector3.Distance(transform.position, distination) > 0.2f)
         {
             dir = Vector3.Normalize(distination - transform.position);
             transform.position += dir * speed * Time.deltaTime;
