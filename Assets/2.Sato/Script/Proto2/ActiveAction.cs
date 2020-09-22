@@ -170,7 +170,7 @@ public class ActiveAction : MonoBehaviour
             var CarNav = Car.GetComponent<CarpenterNavMove>();
             CarNav.AddPoints(SetPosition);
             CarNav.SetBilding(() => Instantiate(Canon[Level - 1], Car.transform.position, Quaternion.identity),
-                () => controller.CurrentSoldiorNum += cost.DefaltCampCosts[Level - 1]);
+                () => controller.CurrentSoldiorNum += cost.DefaltCanonCosts[Level - 1]);
         }
     }
     private void SetCamp(int Level)

@@ -11,6 +11,8 @@ public class GameManagerScript : MonoBehaviour
     private bool OverTrigger = false;
     private SE se;
     private bool isPose = false;
+    [SerializeField]
+    private bool isTutorial = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class GameManagerScript : MonoBehaviour
             IntervalTime -= Time.deltaTime;
             if (IntervalTime < 0)
             {
-                SceneManager.LoadScene("m_ClearScene");
+                SceneManager.LoadScene("m_ClearScene");                
             }
         }
         else if (OverTrigger)
@@ -40,10 +42,16 @@ public class GameManagerScript : MonoBehaviour
             IntervalTime -= Time.deltaTime;
             if (IntervalTime < 0)
             {
-                SceneManager.LoadScene("m_GameOver");
+                if (isTutorial)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+                else
+                {
+                    SceneManager.LoadScene("m_GameOver");
+                }
             }
         }
-
     }
     public void Crear(float IntervalTime)
     {

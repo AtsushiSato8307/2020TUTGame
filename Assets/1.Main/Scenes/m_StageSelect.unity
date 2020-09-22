@@ -2319,7 +2319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &429364983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6427,7 +6427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: sute-zimei
+  m_Text: 
 --- !u!222 &969158882
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7189,7 +7189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB\uFF11"
+  m_Text: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB1"
 --- !u!222 &1027449877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11682,7 +11682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB\uFF12"
+  m_Text: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB2"
 --- !u!222 &1809544395
 CanvasRenderer:
   m_ObjectHideFlags: 0

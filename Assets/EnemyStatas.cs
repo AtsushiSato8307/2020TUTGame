@@ -35,7 +35,7 @@ public class  EnemyStatas : MonoBehaviour
         {
             Retarget();   
         }
-        if (target.tag == "Untagged")
+        else if (target.tag == "Untagged")
         {
             Retarget();
         }
