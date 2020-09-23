@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/3.Uchiyama/Scene/tutorial3.unity
     guid: 03167058a97ec114e8e247a3fef94d7e
   - enabled: 1
+    path: Assets/3.Uchiyama/Scene/tutorial5.unity
+    guid: 3bf8dd13fe9c4414fb695e74d09f6b91
+  - enabled: 1
     path: Assets/3.Uchiyama/Scene/tutorial2.unity
     guid: 6d19d91a0616f0842952ede38bf31e09
   - enabled: 1

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class StageInfo : MonoBehaviour
 {
-    public GameObject Stage;
-    public GameObject[] noStage;
+    public GameObject[] StageInfos;
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +18,12 @@ public class StageInfo : MonoBehaviour
         
     }
 
-    public void StageScen()
+    public void StageScen(int num)
     {
-        Stage.SetActive(true);
-        /*
-        MyCanvas.SetActive("Stage2_Info", false);
-        MyCanvas.SetActive("Stage3_Info", false);
-        MyCanvas.SetActive("Stage4_Info", false);
-        */
-
-        for(int i = 0; i < noStage.Length; i++)
+        foreach(var i in StageInfos)
         {
-            noStage[i].SetActive(false);
+            i.SetActive(false);
         }
-        
+        StageInfos[num].SetActive(true);
     }
 }

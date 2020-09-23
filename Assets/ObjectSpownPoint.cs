@@ -10,6 +10,9 @@ public class ObjectSpownPoint : MonoBehaviour
     [SerializeField, Tooltip("生成するオブジェクトのプレファブ")]
     private GameObject enemy = null;
 
+    [SerializeField, Tooltip("初期生成ありか")]
+    private bool StartSpown = false;
+
     // タイマー
     private float timer;
 
@@ -17,7 +20,10 @@ public class ObjectSpownPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (StartSpown)
+        {
+            timer = intervalTime;
+        }
     }
 
     // Update is called once per frame

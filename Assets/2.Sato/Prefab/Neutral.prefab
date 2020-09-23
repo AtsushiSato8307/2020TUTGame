@@ -796,11 +796,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6161028084706582036, guid: 014231d67d2636b47949d08374ddb68e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1425753662704673142, guid: 014231d67d2636b47949d08374ddb68e,
         type: 3}
       propertyPath: enemy
@@ -811,6 +806,16 @@ PrefabInstance:
         type: 3}
       propertyPath: intervalTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425753662704673142, guid: 014231d67d2636b47949d08374ddb68e,
+        type: 3}
+      propertyPath: StartSpown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161028084706582036, guid: 014231d67d2636b47949d08374ddb68e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 014231d67d2636b47949d08374ddb68e, type: 3}
@@ -1287,22 +1292,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6161028084706582036, guid: 014231d67d2636b47949d08374ddb68e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1425753662704673142, guid: 014231d67d2636b47949d08374ddb68e,
         type: 3}
       propertyPath: intervalTime
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7638493301433334620, guid: 014231d67d2636b47949d08374ddb68e,
+    - target: {fileID: 6161028084706582036, guid: 014231d67d2636b47949d08374ddb68e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 926928080396834979, guid: 014231d67d2636b47949d08374ddb68e,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 926928080396834979, guid: 014231d67d2636b47949d08374ddb68e,
+    - target: {fileID: 7638493301433334620, guid: 014231d67d2636b47949d08374ddb68e,
         type: 3}
       propertyPath: m_Enabled
       value: 0

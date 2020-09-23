@@ -8,6 +8,10 @@ public class PlayerMove : MonoBehaviour
     private float speed = 0;
     [SerializeField, Tooltip("移動音")]
     private CriAtomSource audio;
+    [SerializeField, Tooltip("ターゲットポインタ")]
+    private GameObject TargetPointPrefs;
+
+    private GameObject targetPointObj;
 
     public bool CompulsionStop = false;
     // 移動許可
@@ -68,6 +72,7 @@ public class PlayerMove : MonoBehaviour
         else if (is_move == true)
         {
             is_move = false;
+            Destroy(targetPointObj);
             moveEndCall.Invoke();
         }
     }
@@ -78,6 +83,11 @@ public class PlayerMove : MonoBehaviour
     public void MovePlayer(Vector3 distination, callback endMove)
     {
         this.distination = distination;
+        if (targetPointObj != null)
+        {
+            Destroy(targetPointObj);
+        }
+        targetPointObj = Instantiate(TargetPointPrefs, distination, Quaternion.identity);
         moveEndCall = endMove;
         is_move = true;
         transform.forward = Vector3.Normalize(distination - transform.position);

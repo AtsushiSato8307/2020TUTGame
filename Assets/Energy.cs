@@ -16,14 +16,24 @@ public class Energy : MonoBehaviour
     {
         Controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        distination = transform.position + new Vector3(0, 2.5f, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if (Player != null)
+        //{
+        //    distination = Player.transform.position;
+        //    transform.position = Vector3.Slerp(transform.position, distination, speed * Time.deltaTime);
+        //    if (Vector3.Distance(transform.position, distination) < 0.1f)
+        //    {
+        //        Controller.ReinforcedPoint++;
+        //        Destroy(gameObject);
+        //    }
+        //}
         if (Player != null)
-        {
-            distination = Player.transform.position;
+        {            
             transform.position = Vector3.Slerp(transform.position, distination, speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, distination) < 0.1f)
             {

@@ -24,4 +24,8 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
 }

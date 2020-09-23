@@ -32,4 +32,8 @@ public class SoldiorStatas : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -167,13 +167,14 @@ MonoBehaviour:
   Speed: 1.5
   MaxHitPoint: 3000
   CurrentHitPoint: 3000
-  TargetTag: Player
+  TargetTag: Soldior
   target: {fileID: 0}
   Damage: 149
   AttackIntervalTime: 4
   AttackRange: 5
   DropItem: {fileID: 6212501163479302678, guid: 5b66439bfa8777644943d4d53191267d,
     type: 3}
+  retargetTime: 5
 --- !u!114 &4633611513304426671
 MonoBehaviour:
   m_ObjectHideFlags: 0

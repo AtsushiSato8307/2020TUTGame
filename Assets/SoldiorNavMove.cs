@@ -14,6 +14,9 @@ public class SoldiorNavMove : MonoBehaviour
     [SerializeField, Tooltip("目的地指定用プレファブ")]
     private GameObject TargetObj;
 
+    public float retargetTime = 5;
+    private float retargetTimer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,11 @@ public class SoldiorNavMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        retargetTimer += Time.deltaTime;
+        if (retargetTimer > retargetTime)
+        {
+            retargetTimer = 0;
+        }
         // ターゲットできていれば移動
         if (CurrentTarget != null)
         {

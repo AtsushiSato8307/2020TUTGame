@@ -5058,6 +5058,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   audio: {fileID: 1652816959054264133}
+  TargetPointPrefs: {fileID: 4804831099939680302, guid: 9c41cff7563ce954d997eb6b8cf4ccae,
+    type: 3}
   CompulsionStop: 0
 --- !u!114 &424847421
 MonoBehaviour:
