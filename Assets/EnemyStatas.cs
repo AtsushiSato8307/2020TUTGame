@@ -15,6 +15,9 @@ public class  EnemyStatas : MonoBehaviour
     public float AttackRange = 2;
     public GameObject DropItem;
 
+    public float retargetTime = 5;
+    private float retargetTimer = 0;
+
     private HitPoint hp;
     private EnemyMove move;
 
@@ -29,6 +32,12 @@ public class  EnemyStatas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        retargetTimer += Time.deltaTime;
+        if (retargetTimer > retargetTime)
+        {
+            retargetTimer = 0;
+            Retarget();
+        }
         MaxHitPoint = hp.maxHitPoint;
         CurrentHitPoint = hp.currentHitPoint;
         if (target == null)

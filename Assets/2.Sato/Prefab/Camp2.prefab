@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpownSoldiorNum: 20
-  intervalTime: 2.5
-  spownSoldiorNum: 2
+  intervalTime: 1.5
+  spownSoldiorNum: 1
   MaskField: {fileID: 8477394078100022791, guid: 540f94aed82554b47898ed70f0cea7ac,
     type: 3}
 --- !u!114 &54895438748967272
