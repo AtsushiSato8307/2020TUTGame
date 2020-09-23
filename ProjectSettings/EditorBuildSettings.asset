@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/3.Uchiyama/Scene/Stage3_kari.unity
     guid: f954fc4f4c0cef848ac24c9e90c94658
   - enabled: 1
+    path: Assets/3.Uchiyama/Stage4_kari.unity
+    guid: cd393b5e958de934ba09128b90d3706c
+  - enabled: 1
     path: Assets/3.Uchiyama/Scene/tutorial.unity
     guid: 0121fddca77cb75439f3a1a082357d4f
   - enabled: 1
