@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dc6d2af1f780c4aa3c11f0fcd3b0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoint: 200
-  currentHitPoint: 200
+  maxHitPoint: 100
+  currentHitPoint: 100
   is_Dead: 0
   enabledUI: 1
 --- !u!114 &744107609

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageInfo : MonoBehaviour
 {
@@ -25,5 +26,14 @@ public class StageInfo : MonoBehaviour
             i.SetActive(false);
         }
         StageInfos[num].SetActive(true);
+
+        GameObject work = GameObject.Find("Scrollbar1");
+            if (work)
+            {
+                float aRatio = work.GetComponent<Scrollbar>().value;
+                aRatio = (float)num / (StageInfos.Length -1);
+                work.GetComponent<Scrollbar>().value = 1 - aRatio;
+            }
+        
     }
 }
