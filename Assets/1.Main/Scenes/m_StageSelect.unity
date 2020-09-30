@@ -786,7 +786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: afb4546230db06344894929831bf99d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc6747e447098b94e8e21bc59e600ac6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2032,7 +2032,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bc6747e447098b94e8e21bc59e600ac6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afb4546230db06344894929831bf99d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12601,7 +12601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u305B\u3044\u3042\u3064\u306B\u3064\u3044\u3066\u307E\u306A\u3079\u308B\u305E"
+  m_Text: "\u304D\u3087\u3066\u3093\u306B\u3064\u3044\u3066\u307E\u306A\u3079\u308B\u305E"
 --- !u!222 &1962551818
 CanvasRenderer:
   m_ObjectHideFlags: 0
