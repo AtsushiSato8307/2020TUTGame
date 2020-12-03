@@ -24,7 +24,7 @@ public class SEBGM_tyousei : MonoBehaviour
         float sevol = PlayerPrefs.GetFloat("SEvol", SEvol);
         SEslider.value = SEvol;
         CriAtomExCategory.SetVolume("BGM", BGMvol);
-        CriAtomExCategory.SetVolume(1, SEvol);
+        CriAtomExCategory.SetVolume("SFX", SEvol);
     }
 
     
@@ -33,7 +33,9 @@ public class SEBGM_tyousei : MonoBehaviour
         BGMvol = BGMslider.value;
         SEvol = SEslider.value;
         CriAtomExCategory.SetVolume("BGM", BGMvol);
-        CriAtom.SetCategoryVolume(1,SEvol);
+        CriAtom.SetCategoryVolume("SFX",SEvol);
+
+
         Debug.Log("0:" + CriAtom.GetCategoryVolume(0));
         Debug.Log("1:" + CriAtom.GetCategoryVolume(1));
         Debug.Log("2:" + CriAtom.GetCategoryVolume(2));
